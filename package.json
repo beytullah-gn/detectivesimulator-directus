@@ -1,0 +1,27 @@
+{
+  "name": "detectivesimulator-directus",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.cjs",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "first-start": "node build-and-start.js",
+    "start-all": "node start-all.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "async-mutex": "^0.5.0",
+    "axios": "^1.13.2",
+    "body-parser": "^2.2.2",
+    "bullmq": "^5.67.0",
+    "directus": "^11.13.4",
+    "email-validator": "^2.0.4",
+    "mysql2": "^3.15.3",
+    "nodejs-base64-converter": "^1.0.5",
+    "request": "^2.88.2",
+    "uuid": "^13.0.0"
+  }
+}

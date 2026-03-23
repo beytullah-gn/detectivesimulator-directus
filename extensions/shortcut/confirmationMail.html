@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email Confirmation</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0f0a06;
+      color: #f4ead7;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+    .container {
+      max-width: 640px;
+      margin: 40px auto;
+      padding: 24px;
+      background: #1c140d;
+      border: 1px solid #5a4028;
+      border-radius: 8px;
+    }
+    h1 {
+      font-size: 22px;
+      margin: 0 0 12px;
+      color: #f1d08a;
+    }
+    p {
+      line-height: 1.6;
+      margin: 0 0 16px;
+    }
+    a.button {
+      display: inline-block;
+      padding: 12px 18px;
+      background: #8a5a24;
+      color: #1c140d !important;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+    .footer {
+      margin-top: 24px;
+      font-size: 12px;
+      color: rgba(244, 234, 215, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Confirm your email</h1>
+    <p>Click the button below to confirm your email address.</p>
+    <p><a class="button" href="{{confirmation_link}}">Confirm Email</a></p>
+    <p>If the button doesn't work, copy and paste this link into your browser:</p>
+    <p>{{confirmation_link}}</p>
+    <div class="footer">&copy; {{year}} Detective Simulator</div>
+  </div>
+</body>
+</html>
