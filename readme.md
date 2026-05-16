@@ -1,96 +1,102 @@
-# Detective Simulator - Directus Backend
+# Detective Simulator Directus Backend
 
-Directus tabanli ana backend ve oyuna ozel extension servisleri.
+Detective Simulator için Directus 11 backend, custom auth/game endpointleri ve schema bootstrap araçları.
 
-Bu repo su iki ana islevi saglar:
-
-- Directus API ve admin paneli
-- Oyun akisi icin custom extension endpointleri (auth, game)
-
-## Tech Stack
+## Requirements
 
 - Node.js 22
-- Directus 11
 - MySQL
-- Custom Directus Extensions
+- Directus 11
 
-## Repository Structure
+Repo içinde `.nvmrc` bulunur:
 
-- index.cjs: Directus server baslatma giris noktasi
-- build-and-start.js: Ana proje ve extension build + start akisi
-- start-all.js: Tum extensionlari build edip Directus calistirir
-- extensions/auth: Kimlik dogrulama ve hesap akislari
-- extensions/game: Oyun session, sorgulama ve AI akis endpointleri
-- uploads: Yerel dosya depolama alani
+```bash
+nvm use
+```
 
-## Prerequisites
+## Environment
 
-- Node.js 22.x
-- npm
-- MySQL (calisir durumda bir veritabani)
+`.env` dosyasında en az şu alanlar tanımlı olmalıdır:
 
-## Environment Setup
+```bash
+KEY=...
+SECRET=...
+PUBLIC_URL=http://localhost:8057
+DB_CLIENT=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=detectivesimulator
+DB_USER=...
+DB_PASSWORD=...
+ADMIN_USER_ID=...
+FRONTEND_URL=http://localhost:3000
+ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000
+ALLOW_API_TEST_CLIENTS=false
+OPENROUTER_API_KEY=...
+OPENROUTER_MODEL=openai/gpt-oss-120b:free
+OPENROUTER_MAX_TOKENS=450
+```
 
-1. Ornek dosyayi kopyalayin:
+`OPENROUTER_MODEL` yalnızca `openrouter/free` veya `:free` ile biten modelleri kabul eder. Varsayılan model `openai/gpt-oss-120b:free` olarak kalmalıdır; yanlış veya ücretli model ayarında OpenRouter çağrısı yapılmadan hata döner.
 
-   cp .env.example .env
+## Bootstrap
 
-2. .env icindeki en kritik alanlari doldurun:
+Yeni schema ve gerekli prompt kayıtlarını kurmak için:
 
-- DB_CLIENT, DB_HOST, DB_PORT, DB_DATABASE, DB_USER, DB_PASSWORD
-- SECRET
-- ADMIN_USER_ID
-- FRONTEND_URL
-- SENDER_NET_ACCESS_TOKEN
-- OPENROUTER_API_KEY
-- OPENROUTER_MODEL
+```bash
+DIRECTUS_TOKEN=your-admin-or-agent-token npm run bootstrap:schema
+```
 
-Not:
+Boş instance için demo vaka da eklemek isterseniz:
 
-- Gercek gizli anahtarlarin repoya commitlenmemesi gerekir.
-- .env dosyasi gitignore ile korunur.
+```bash
+DIRECTUS_TOKEN=your-admin-or-agent-token npm run bootstrap:demo
+```
 
-## Database Setup
+Kategori yapısı ve çoklu vaka katalog seed'i için:
 
-Projede SQL dump dosyalari bulunur:
+```bash
+DIRECTUS_TOKEN=your-admin-or-agent-token npm run seed:catalog
+```
 
-- detectivesimulator.sql
-- empty-detectivesimulator.sql
+## Run
 
-Ortam tipine gore uygun dosyayi import ederek baslangic veritabani kurabilirsiniz.
+```bash
+npm install
+npm run start-all
+```
 
-## Run Commands
+veya yalnızca Directus:
 
-Bagimliliklari yukleyin:
+```bash
+npm start
+```
 
-    npm install
+## Architecture
 
-Normal baslatma:
+- `extensions/auth`: sade kayit ve aktif kullanici endpointleri
+- `extensions/game`: session, hint, interrogation ve final answer akisi
+- `scripts/bootstrap-v2-schema.mjs`: idempotent schema/prompt/demo seed bootstrap
+- `scripts/seed-catalog-v2.mjs`: kategori ve coklu vaka katalog seed scripti
 
-    npm start
+## MCP And Smoke Checks
 
-Ilk kurulum + extension build + baslatma:
+Local doğrulama için:
 
-    npm run first-start
+```bash
+curl http://localhost:8057/server/info
+curl http://localhost:8057/game/health
+```
 
-Tum extensionlari build edip baslatma:
+MCP endpoint'i `http://localhost:8057/mcp` üstünden tokenlı initialize çağrısını destekler. İçerik güncellemelerinde schema değiştirmeden mevcut koleksiyonlar kullanılmalıdır: `scenarios`, `characters`, `scenario_media`, `hints`, `ai_prompts`, `scenario_categories`.
 
-    npm run start-all
+## Verified Flow
 
-## Scripts
-
-- npm start: Directus server calistirir
-- npm run first-start: Ana bagimlilik + extension bagimlilik + build + start
-- npm run start-all: Extension build + start
-
-## Security Notes
-
-- .sql dump, .env ve anahtar dosyalari gitignore ile disarda tutulur.
-- Eger herhangi bir gizli anahtar yanlislikla paylasildiysa anahtari derhal rotate edin.
-- Domain kontrolu ve rate limit logic'i extension katmaninda uygulanir.
-
-## Related Repository
-
-Frontend uygulamasi ayri repoda tutulur:
-
-- detectivesimulator-website
+- kayıt oluşturma
+- login
+- published senaryo okuma
+- karakter listesi çekme
+- session başlatma
+- hint kullanma
+- interrogation
+- session detail okuma
