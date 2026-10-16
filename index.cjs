@@ -7,6 +7,7 @@ async function startDirectus() {
       console.log("Directus server started successfully.");
     } catch (error) {
       console.error("Error starting Directus server:", error.message);
+      process.exitCode = 1;
     }
   }
   

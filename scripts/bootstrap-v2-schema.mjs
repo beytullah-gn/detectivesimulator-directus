@@ -1272,6 +1272,7 @@ async function main() {
     "accent_color",
   ];
   const scenarioReadFields = [
+    "sort",
     "id",
     "status",
     "date_created",
@@ -1290,6 +1291,7 @@ async function main() {
     "cover_image",
   ];
   const characterReadFields = [
+    "sort",
     "id",
     "status",
     "related_scenario",
@@ -1306,6 +1308,7 @@ async function main() {
     "avatar",
   ];
   const scenarioMediaReadFields = [
+    "sort",
     "id",
     "status",
     "related_scenario",

@@ -498,6 +498,7 @@ async function callOpenRouter(env, messages) {
         messages,
         temperature: 0.7,
         top_p: 0.9,
+        reasoning: { enabled: false },
         max_tokens: Number(env.OPENROUTER_MAX_TOKENS) || 450,
       },
       {
