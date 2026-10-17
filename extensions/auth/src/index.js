@@ -234,6 +234,7 @@ async function verifyGoogleToken(env, identityToken) {
     provider: "google",
     subject: String(payload.sub),
     email: sanitizeEmail(payload.email),
+    emailVerified: payload.email_verified === true || payload.email_verified === "true",
     firstName: sanitizeName(payload.given_name),
     lastName: sanitizeName(payload.family_name),
   };
@@ -258,6 +259,7 @@ async function verifyAppleToken(env, identityToken) {
     provider: "apple",
     subject: String(payload.sub),
     email: sanitizeEmail(payload.email),
+    emailVerified: payload.email_verified === true || payload.email_verified === "true",
     firstName: "",
     lastName: "",
   };
@@ -427,8 +429,17 @@ export default {
 
         let user = await findSocialUser(usersService, profile.provider, profile.subject);
 
+        // Link to an existing account by email only when the provider vouches for that email.
         if (!user && profile.email && isValidEmail(profile.email)) {
-          user = await usersService.getUserByEmail(profile.email);
+          const emailUser = await usersService.getUserByEmail(profile.email);
+          if (emailUser && !profile.emailVerified) {
+            return res.status(409).json({ error: "This email is already registered." });
+          }
+          user = emailUser
+            ? await usersService.readOne(emailUser.id, {
+                fields: ["id", "email", "first_name", "last_name", "provider", "external_identifier", "role", "status"],
+              })
+            : null;
         }
 
         const roleId =
@@ -465,8 +476,9 @@ export default {
             ],
           });
         } else if (
-          user.provider !== profile.provider ||
-          user.external_identifier !== profile.subject
+          // Password accounts keep their provider so email/password sign-in keeps working.
+          user.provider !== "default" &&
+          (user.provider !== profile.provider || user.external_identifier !== profile.subject)
         ) {
           await usersService.updateOne(user.id, {
             provider: profile.provider,
