@@ -47,3 +47,6 @@ coverage/
 *.crt
 *.p12
 *.pfx
+
+# Versioned schema migrations (other .sql files are database dumps)
+!scripts/migrations/*.sql

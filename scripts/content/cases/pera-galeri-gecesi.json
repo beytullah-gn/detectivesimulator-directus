@@ -1,0 +1,162 @@
+{
+  "slug": "pera-galeri-gecesi",
+  "scenario": {
+    "description": "Pera'daki bir galerinin özel ön gösterim gecesinde, kasadaki en değerli çizim birebir bir kopyayla değiştirilir. Bir nem alarmı, telsizden verilen bir yönlendirme ve tek imzalı bir teslim fişi aynı yirmi dakikaya sıkışıyor.",
+    "story": "Asmalımescit'in arka sokaklarındaki Galeri Mavi Kapı, yılın en önemli gecesine hazırlanıyordu. Koleksiyonun yıldızı, ressam Seza Tunalı'nın 1958 tarihli \"Kıyıda Bekleyenler\" karakalem eskiziydi. Sigorta değeri 4,2 milyon lira olan çizim, gece boyunca nem kontrollü kasa odasında duracak, yalnızca kapanışta davetlilere gösterilecekti.\n\nSaat 19.30'da kapılar açıldı. 20.05'te baş küratör Aslı Yalçın bağışçıları Ana Salon A'daki özel tura aldı. 20.11'de kasa odasında nem alarmı çaldı; yirmi üç saniye sonra sustu. Telsizden bir anons geldi ve kalabalık, kasa koridorunun ters yönündeki salona yönlendirildi.\n\nGece yarısına doğru restorasyon uzmanı Mina Erdem çizimi UV ışığı altında son kez kontrol ettiğinde kâğıdın liflerinde tanımadığı bir toz yapısı gördü. Kasadaki eser, çok iyi yapılmış bir replikaydı.\n\nKasa kapısı zorlanmamıştı. Koridor yalnızca birkaç dakika boş kalmıştı. O gece eserle ilgilenen dört kişi vardı: geceyi yöneten küratör, lojistiği yöneten operasyon müdürü, esere göz koymuş sponsor ve orijinalliği raporlayan uzman.\n\nGörevin: Değişimin ne zaman, nasıl ve kimin eliyle yapıldığını bulmak.",
+    "briefing_audio_url": "/case-media/pera-galeri-gecesi/brifing.mp3",
+    "summary_for_ai": "Kerem Sönmez, galeri adına aldığı nakit avanslardan 340.000 TL'lik açığı öğrenen ve kendini yalnızca 'Ş.' diye tanıtan özel bir koleksiyoncunun şantajı altındaydı. Saat 17.02'de galerinin telesekreterine bu kişiden 'kasadaki açığı herkesten önce ben öğrendim, bu akşam konuştuğumuz gibi' mesajı geldi. Kerem, 18.20'de replika kutusunu 'teknik ekip adına' tek imzayla teslim aldı (protokol iki imza ister). 20.11'de kendi panelinden nem alarmını tetikleyip 23 saniyede sıfırladı, 20.12'de telsizden herkesi Ana Salon B'ye yönlendirerek kasa koridorunu boşalttı, 20.15-20.19 arasında kasa odasında 'nem kontrolü' yapıp eseri replikayla değiştirdi. Cem Talu eseri isteyen fırsatçı bir sponsor ama değişimi yapan değil. Aslı ve Mina masum.",
+    "scenario_answer_rule": "Doğru suçlu: Kerem Sönmez. Güçlü bir gerekçe şu bağlardan en az ikisini kurar: nem alarmının Kerem'in panelinden 23 saniyede sıfırlanması (sahte alarm), telsizle kalabalığı ters salona yönlendirip kasa koridorunu boşaltması, replika kutusunu tek imzayla teslim alması (iki imza protokolü), telesekreterdeki şantaj mesajı ve nakit açığı (motivasyon)."
+  },
+  "characters": [
+    {
+      "id": "054d83e7-3d5e-4f14-8516-f62fedf1df07",
+      "role": "Koleksiyoner Sponsor",
+      "description": "Açılış gecesinin ana sponsoru ve esere açıkça göz koymuş bir koleksiyoner.",
+      "background": "Piyasada sert pazarlıklarıyla tanınan varlıklı bir koleksiyoner.",
+      "personality": "Kendinden emin, manipüle etmeyi seven, sabırsız.",
+      "alibi": "Alarm sırasında davetlilerle birlikte Ana Salon A'da şampanya servisindeydi; fotoğrafçının karelerinde görünüyor.",
+      "behavior_during_incident": "Kayıp açıklanmadan önce sigorta limitini sordu.",
+      "motive": "Eseri satın almak istiyor ama açık bir hırsızlık onu doğrudan hedef yapardı.",
+      "secret_info": "Açılıştan önce Kerem'le kapalı kapılar ardında eseri satın alma ihtimalini konuştu; Kerem'in gergin olduğunu ve sürekli telefonuna baktığını fark etti. Kerem'in 'bu gece her şey değişebilir' dediğini hatırlıyor ama ne demek istediğini anlamadı.",
+      "question_prompts": ["Bu eseri almak için galeriyi ne kadar zorladın?", "Kerem ile açılış öncesi neden özel görüşme yaptın?", "Alarmdan sonra neden hemen sigorta bedelini sordun?"]
+    },
+    {
+      "id": "a4018f77-9c2f-4887-83c7-971d1df25b36",
+      "role": "Operasyon Müdürü",
+      "description": "Etkinlik lojistiği, kasa geçişleri ve tedarikçi akışından sorumlu.",
+      "background": "Bir süredir galeri adına aldığı nakit avanslardaki açığı gizlemeye çalışıyor.",
+      "personality": "Rahat görünen ama baskı altında sürekli kontrol arayan biri. Sorular sıkışınca prosedür detaylarına boğar.",
+      "alibi": "Alarm çalmadan hemen önce teknik ekiple birlikte olduğunu, alarmdan sonra nemi kontrol etmek için kasa odasına girdiğini söylüyor.",
+      "behavior_during_incident": "Alarmdan sonra telsizden herkesi Ana Salon B'ye yönlendirdi.",
+      "motive": "Nakit açığını bilen bir koleksiyoncunun şantajı altında, eseri satmaya razı oldu.",
+      "secret_info": "Nem alarmını kendi panelinden tetikleyip sıfırladı, kasa odasında eseri önceden hazırlanmış replikayla değiştirdi. Replika kutusunu öğleden sonra 'teknik ekip adına' kendisi teslim aldı.",
+      "question_prompts": ["Nem alarmı neden yirmi üç saniyede sustu?", "Kalabalığı neden Ana Salon B'ye yönlendirdin?", "Teslim fişindeki ikinci imza nerede?"]
+    },
+    {
+      "id": "e72ccef1-b7c8-4946-b31d-908f7aa2b226",
+      "role": "Baş Küratör",
+      "description": "Gecenin kurgusunu ve eser akışını yöneten baş küratör.",
+      "background": "Galerinin itibarını her şeyin üstünde tutan disiplinli bir küratör.",
+      "personality": "Keskin, kontrolcü, panik anında otoriter.",
+      "alibi": "20.05'ten itibaren bağışçılarla Ana Salon A'daki özel turdaydı.",
+      "behavior_during_incident": "Alarmdan önce eser etiketlerini son kez kontrol etti.",
+      "motive": "Galeri itibarını korumak ister; eseri satmak kariyerini bitirirdi.",
+      "secret_info": "Kerem'in gün içinde sigorta klasörünü iki kez istediğini ve telsiz anonsundan sonra kalabalığın neden B salonuna gittiğini anlayamadığını hatırlıyor; nem alarmında prosedür kalabalığı dışarı çıkarmaktır.",
+      "question_prompts": ["Kasa koridoru boşaldığında kimin eksik olduğunu fark ettin mi?", "Nem alarmında prosedür neyi gerektirir?", "Replikayı kimler ayırt edebilirdi?"]
+    },
+    {
+      "id": "f9286bc9-beca-4618-87a1-ee62766e02cc",
+      "role": "Restorasyon Uzmanı",
+      "description": "Eserin yüzey analizini yapan ve orijinallik raporunu hazırlayan uzman.",
+      "background": "Eserin geçmişteki tüm restorasyon zincirini ezbere bilen titiz bir uzman.",
+      "personality": "Detaycı, sessiz, teknik olarak çok net.",
+      "alibi": "Alarm sırasında arka ofiste UV raporlarını hazırlıyordu.",
+      "behavior_during_incident": "Kâğıt liflerinde farklı bir toz yapısı gördüğünü söyledi ve replikayı ilk o tespit etti.",
+      "motive": "Teknik emeğini sabote edecek bir hırsızlık ona zarar verir, fayda sağlamaz.",
+      "secret_info": "Kerem'in kasa odasındaki nem panelinin yönetici anahtarına sahip olduğunu biliyor; normalde alarm sıfırlaması restorasyon ekibinin onayıyla yapılır.",
+      "question_prompts": ["Replika ile orijinal arasındaki ilk fark neydi?", "Nem alarmını kimler sıfırlayabilir?", "Değişim ne kadar sürede yapılabilirdi?"]
+    }
+  ],
+  "relations": [
+    { "id": 19, "relation": "Aslı, Kerem'in organizasyon disiplinini gerekli bulsa da fazla kontrolcü olduğunu düşünüyor." },
+    { "id": 20, "relation": "Kerem, Cem'in açılış öncesi baskısından bunaldığını söylüyor." },
+    { "id": 21, "relation": "Mina, Kerem'in teknik alana fazla müdahale etmesinden rahatsız." },
+    { "id": 22, "relation": "Cem, Aslı'nın sanat hassasiyetini yavaş buluyor ve sürekli baskı kuruyor." },
+    { "id": 23, "relation": "Mina, Aslı'ya teknik olarak güveniyor ama panik anında onu fazla otoriter buluyor." },
+    { "id": 24, "relation": "Cem, açılıştan önce Kerem'le kapalı kapılar ardında görüştü." }
+  ],
+  "evidence": [
+    {
+      "key": "kat-plani",
+      "sort": 1,
+      "type": "Kat Planı",
+      "title": "Galeri Kat Planı",
+      "description": "Kasa odası, Ana Salon A'nın arkasındaki koridorda; Ana Salon B ters yönde.",
+      "content": "Kasa koridoruna yalnızca Ana Salon A'nın arkasından girilebiliyor. Ana Salon B binanın diğer ucunda. Acil durum çıkışı lobide.",
+      "media_url": "/case-media/pera-galeri-gecesi/kat-plani.jpg"
+    },
+    {
+      "id": "19b673d1-7602-403b-944b-7157b46cfe4a",
+      "sort": 2,
+      "type": "Liste",
+      "title": "Konuk Akış Çizelgesi",
+      "description": "Aslı'nın VIP turu ile kasa koridorunun boşaldığı pencere aynı ana denk geliyor.",
+      "content": "20.05 bağışçılar Ana Salon A'ya alınır. 20.12 telsiz anonsu sonrası kalabalık Ana Salon B'ye yönelir. 20.12-20.20 arasında kasa koridorunda kimse görülmüyor."
+    },
+    {
+      "id": "bf99879c-4565-45b9-9c9f-ca95501be5b7",
+      "sort": 3,
+      "type": "Sistem Kaydı",
+      "title": "Nem Paneli Kaydı",
+      "description": "Kasadaki alarm tek seferlik manuel bir müdahaleyle susturulmuş.",
+      "content": "Alarm 20.11.00'de çalıyor, 23 saniye sonra K.SONMEZ yönetici anahtarıyla sıfırlanıyor. Alarmdan önceki ve sonraki nem değerleri %48'de sabit; gerçek bir nem sıçraması yok.",
+      "media_url": "/case-media/pera-galeri-gecesi/nem-paneli.jpg",
+      "is_key_evidence": true
+    },
+    {
+      "key": "telsiz-2012",
+      "sort": 4,
+      "type": "Telsiz Kaydı",
+      "title": "Telsiz Kaydı 20.12",
+      "description": "Alarmdan bir dakika sonra kalabalık telsizle yönlendiriliyor.",
+      "content": "\"Tüm ekiplere: kasa odasında nem alarmı. Misafirleri Ana Salon B'ye alın, kasa koridorunu boşaltın. Kasa odasına ben bakıyorum.\" Sesin sahibi telsiz kaydında Kerem Sönmez olarak işaretli.",
+      "media_url": "/case-media/pera-galeri-gecesi/telsiz-2012.mp3",
+      "is_key_evidence": true
+    },
+    {
+      "id": "af24b5d5-6c48-49c8-9e7c-0f6dec36f9c2",
+      "sort": 5,
+      "type": "Belge",
+      "title": "Sigorta Ek Protokolü",
+      "description": "Eser taşıma ve kasa teslimlerinde iki imza zorunlu.",
+      "content": "Protokole göre kasa odasına giren her paket ve kasa çıkışı, operasyon müdürü ile restorasyon uzmanının birlikte imzasını gerektirir. Tek imzalı teslim geçersiz sayılır."
+    },
+    {
+      "key": "teslim-fisi",
+      "sort": 6,
+      "type": "Belge",
+      "title": "Kutu Teslim Fişi",
+      "description": "Öğleden sonra galeriye gelen bir kutu, tek imzayla teslim alınmış.",
+      "content": "Fişte 18.20'de \"çerçeve malzemesi, teknik ekip adına\" bir kutu teslim alındığı yazıyor. Teslim alan: Kerem Sönmez. İkinci imza alanı boş. Kutunun ölçüleri eserin çerçevesiyle aynı.",
+      "media_url": "/case-media/pera-galeri-gecesi/teslim-fisi.jpg",
+      "is_key_evidence": true
+    },
+    {
+      "key": "telesekreter-1702",
+      "sort": 7,
+      "type": "Sesli Mesaj",
+      "title": "Galeri Telesekreteri 17.02",
+      "description": "Galeri ofisinin hattına Kerem için bir mesaj bırakılmış.",
+      "content": "\"Kerem Bey, kasadaki açığı herkesten önce ben öğrendim. Bu akşam, konuştuğumuz gibi. Yoksa Aslı Hanım her şeyi öğrenir.\" Arayan numara gizli. Muhasebe kayıtlarında Kerem'in imzasıyla alınan 340.000 TL'lik nakit avans kapatılmamış görünüyor.",
+      "media_url": "/case-media/pera-galeri-gecesi/telesekreter-1702.mp3",
+      "is_key_evidence": true
+    },
+    {
+      "key": "uv-raporu",
+      "sort": 8,
+      "type": "Rapor",
+      "title": "UV İnceleme Notu",
+      "description": "Kasadaki çizimin kâğıdı ve tozu orijinalle uyuşmuyor.",
+      "content": "Mina Erdem'in notu: \"Orijinal kâğıtta 1958 üretimi pamuk lifi ve eski yapıştırıcı izleri var. Kasadaki eserde modern optik beyazlatıcı parlıyor. Bu replika en az birkaç gün önceden hazırlanmış.\""
+    }
+  ],
+  "hints": [
+    {
+      "id": "647aed5d-bb5e-49e0-86ce-7ea904b266d2",
+      "title": "Komiserin notu",
+      "text": "Sorun alarmda değil. Nem değeri hiç değişmemişken alarmı kim, hangi anahtarla susturdu?",
+      "media_url": "/case-media/pera-galeri-gecesi/ipucu-not.jpg"
+    },
+    {
+      "id": "2dfd5395-aa1c-47bf-8f71-1e64a01d7746",
+      "title": "Komiserden sesli mesaj",
+      "text": "Replika bir gecede hazırlanmaz. Öğleden sonra galeriye giren kutuyu ve teslim fişindeki boş imza alanını düşün.",
+      "media_url": "/case-media/pera-galeri-gecesi/ipucu-ses.mp3"
+    },
+    {
+      "id": "b7cac384-a449-4fe3-af26-7660cd819e02",
+      "title": "Yanlış Yön",
+      "text": "Panik anında kalabalığı kasanın ters yönüne süren kişi, koridoru bilinçli boşaltmış olabilir."
+    }
+  ]
+}

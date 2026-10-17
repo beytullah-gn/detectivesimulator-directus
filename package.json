@@ -11,7 +11,8 @@
     "bootstrap:demo": "SEED_DEMO=true node scripts/bootstrap-v2-schema.mjs",
     "cleanup:v2": "node scripts/cleanup-v2-data.mjs",
     "seed:catalog": "node scripts/seed-catalog-v2.mjs",
-    "sync:covers": "node scripts/sync-case-covers.mjs"
+    "sync:covers": "node scripts/sync-case-covers.mjs",
+    "test:game": "node scripts/tests/answer-guard.test.mjs"
   },
   "keywords": [],
   "author": "",

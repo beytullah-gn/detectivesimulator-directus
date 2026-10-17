@@ -1,0 +1,153 @@
+{
+  "slug": "galata-patent-dosyasi",
+  "scenario": {
+    "description": "Galata'daki bir biyoteknoloji girişiminde, yatırımcı toplantısı sırasında imzalı patent dosyası arşivden kaybolur. Erişim kayıtlarında yedi dakikalık bir boşluk var ve rakip firma üç gün sonra neredeyse aynı başvuruyu yapar.",
+    "story": "Galata Kulesi'nin gölgesindeki eski bir han binasının üçüncü katı, Lumen Biyosensör'ün ofisi. Şirketin iki yıllık emeği tek bir dosyada: kan şekerini gözyaşından ölçen akıllı lensin imzalı patent başvurusu. Dosyanın tek ıslak imzalı kopyası, yalnızca kartla girilebilen arşiv odasında duruyordu.\n\nCuma günü saat 14.00'te kurucu Elif Arman, toplantı odasında Boğaziçi Ventures'ın ortaklarıyla şirketin kaderini belirleyecek yatırım görüşmesine başladı. Ofisteki herkes ya toplantıdaydı ya da toplantıya hazırlanıyordu.\n\nSaat 15.30'da baş mühendis Zeynep Kaya, sunumdaki bir çizimi kontrol etmek için arşive girdiğinde patent dosyasının yerinde olmadığını gördü. Güvenlik sorumlusu Derya Acar kayıtları açtığında arşiv kapısının loglarında 14.12 ile 14.19 arasında açıklanamayan bir boşluk buldu.\n\nPazartesi sabahı rakip Nova Medikal, neredeyse aynı cümlelerle yazılmış bir patent başvurusu yaptı.\n\nYatırımcılar bekliyor, avukatlar telefonda. Dört kişi o gün dosyaya ulaşabilecek konumdaydı. Görevin: Dosyayı kimin, nasıl ve neden sızdırdığını bulmak.",
+    "briefing_audio_url": "/case-media/galata-patent-dosyasi/brifing.mp3",
+    "summary_for_ai": "Bora Demir, ağır kumar borçlarını kapatmak için patent dosyasının özetini rakip Nova Medikal'e sattı. Elif'in 14.00'te başlayan yatırımcı toplantısını kılıf olarak kullandı: 14.11'de kartıyla güvenlik odasına girdi, 14.12'de konsoldan arşiv kapısı loglarını 'bakım modu'na alıp kayıtları durdurdu, dosyayı alıp 14.19'da sistemi geri açtı ve 14.24'te toplantıya katıldı. 14.41'de, kayıp henüz kimse tarafından fark edilmemişken, güvenlik hattına 'dış saldırı izi var, arşiv dosyası tehlikede olabilir' diye sesli mesaj bıraktı. Toplantı odasında unuttuğu telefonda bahis sitesinden askıya alma bildirimi ve 'Cuma'ya kadar 480, uzatma yok' mesajı vardı. Finans birimine maaş haczi yazısı gelmişti. Elif, Zeynep ve Derya masum.",
+    "scenario_answer_rule": "Doğru suçlu: Bora Demir. Güçlü bir gerekçe şu bağlardan en az ikisini kurar: kumar borcu ve haciz (finansal motivasyon), 14.11'de güvenlik odasına girişi ve 14.12-14.19 bakım modu boşluğu (logların silinmesi), kayıp fark edilmeden 14.41'de bırakılan 'dış saldırı' sesli mesajı (önceden bilgi ve yanlış yönlendirme), Elif'in toplantı penceresinin kılıf olarak kullanılması."
+  },
+  "characters": [
+    {
+      "id": "0a86d9d1-7ac9-4dd7-916f-e37ba6e6cde6",
+      "description": "Lumen Biyosensör'ün kurucusu. Dosya kaybolduğunda yatırımcılarla kapalı toplantıdaydı.",
+      "background": "Şirketi üniversite laboratuvarından çıkarıp büyüten, ekibi bir arada tutmaya çalışan sonuç odaklı bir yönetici.",
+      "personality": "Kontrollü, baskı altında soğukkanlı, kelimelerini tartarak konuşur.",
+      "alibi": "14.00-15.10 arasında Boğaziçi Ventures ortaklarıyla toplantı odasındaydı.",
+      "behavior_during_incident": "Patent dosyası kaybolunca hemen güvenlik kayıtlarını istedi.",
+      "motive": "Şirketi kurtarmak istiyor; dosyanın sızması yatırımı öldürür, ona hiçbir fayda sağlamaz.",
+      "secret_info": "Bora'nın son haftalarda finans raporlarını savunmacı biçimde kapattığını ve toplantıya geç, terli ve dağınık geldiğini fark etti. Toplantı odasında Bora'nın unuttuğu telefonun ekranında bahis sitesi bildirimi gördü.",
+      "question_prompts": ["Yatırımcı toplantısı başlamadan önce kimlerle görüştün?", "Bora toplantıya geldiğinde nasıl görünüyordu?", "Arşiv koridorundaki boşluk sence tesadüf olabilir mi?"]
+    },
+    {
+      "id": "acf38809-26e4-45ec-bf48-63ed8df51487",
+      "role": "Güvenlik Sorumlusu",
+      "description": "Ofisteki kartlı geçiş sisteminden ve kamera kayıtlarından sorumlu.",
+      "background": "Eski özel güvenlik uzmanı, prosedürlere bağlı.",
+      "personality": "Dikkatli, şüpheci, kuralcı. Kısa ve net konuşur.",
+      "alibi": "Sunum hazırlığı nedeniyle lobide misafir girişlerini kontrol ediyordu.",
+      "behavior_during_incident": "Logların kendi kendine değil, güvenlik odasındaki konsoldan elle durdurulduğunu tespit etti.",
+      "motive": "İtibarı prosedürlerin düzgün işlemesine bağlı; dosyayı sızdırması mantıklı değil.",
+      "secret_info": "14.41'de güvenlik hattına Bora'dan bir sesli mesaj geldiğini toplantı bitince fark etti; mesajda 'dış saldırı' diyordu ama o saatte henüz hiçbir alarm ya da kayıp bildirimi yoktu. Bora'nın son haftalarda güvenlik odasına bahanelerle sık uğradığını hatırlıyor.",
+      "question_prompts": ["Güvenlik odasında o gün seni en çok şaşırtan şey neydi?", "Bakım modunu kimler açabilir?", "Bora'nın güvenlik odasına sık gelmesini nasıl yorumladın?"]
+    },
+    {
+      "id": "c8bfd16c-ba09-4bde-a1e7-8928839d51f7",
+      "role": "Baş Mühendis",
+      "description": "Patent dosyasının teknik kısmını hazırlayan ekip lideri.",
+      "background": "Aylardır lens prototipi üzerinde çalışıyor ve fikri mülkiyet konusunda hassas.",
+      "personality": "Titiz, içe dönük, prensipli.",
+      "alibi": "14.00-15.20 arasında laboratuvarda prototipin son testlerini yapıyordu; laboratuvar kamerası onu gösteriyor.",
+      "behavior_during_incident": "Dosyanın kaybolduğunu 15.30'da ilk fark eden kişi oldu.",
+      "motive": "Emek verdiği ürünü korumak istiyor; sızdırmak için nedeni yok.",
+      "secret_info": "Bora'yı arşiv koridorunda görmedi, ama Bora'nın bütçe toplantılarında patentin piyasa değerini tuhaf bir ısrarla sorduğunu hatırlıyor.",
+      "question_prompts": ["Dosyanın kaybolduğunu nasıl fark ettin?", "Bora ile bütçe tartışmalarınız ne kadar sertti?", "Nova Medikal'in başvurusu sende ne şüphe uyandırdı?"]
+    },
+    {
+      "id": "d564fbf0-d7db-45ee-8bad-8ffc4f922255",
+      "role": "Finans Direktörü",
+      "description": "Şirket bütçesini yöneten, rakamları iyi bilen deneyimli yönetici.",
+      "background": "Yatırım baskısı arttıkça riskli kişisel borçlara girdi.",
+      "personality": "Soğuk, savunmacı, ikna kabiliyeti yüksek. Konuyu sürekli siber güvenliğe çeker.",
+      "alibi": "Toplantıdan önce kendi odasında finans tablolarını hazırladığını, 14.24'te toplantıya katıldığını söylüyor.",
+      "behavior_during_incident": "Kayıp duyulur duyulmaz dış saldırı ihtimalini savundu.",
+      "motive": "Ciddi kumar borcunu kapatmak için dosyanın özetini rakibe sattı.",
+      "secret_info": "Elif'in toplantısını kılıf yapıp 14.12-14.19 arasında arşiv loglarını bakım moduna aldı ve dosyayı aldı. 14.41'de güvenliğe 'dış saldırı' mesajı bırakarak iz sürmeye çalıştı.",
+      "question_prompts": ["14.00 ile 14.24 arasında tam olarak neredeydin?", "Dış saldırıdan neden bu kadar eminsin?", "Kayıp fark edilmeden önce güvenliği neden aradın?"]
+    }
+  ],
+  "relations": [
+    { "id": 13, "relation": "Elif, son haftalarda Bora'nın bütçe tablolarını savunmacı biçimde kapattığını düşünüyor." },
+    { "id": 14, "relation": "Bora, Elif'in yatırım baskısının ekibi hataya sürüklediğini düşünüyor." },
+    { "id": 15, "relation": "Zeynep, teknik bütçe taleplerinde Bora ile sık sık gerilim yaşadı." },
+    { "id": 16, "relation": "Derya, Bora'nın güvenlik odasına gerekenden fazla uğramasını tuhaf buluyor." },
+    { "id": 17, "relation": "Elif, Zeynep'e en güvendiği ekip lideri gibi davranıyor." },
+    { "id": 18, "relation": "Zeynep ve Derya, kayıp sonrası log boşluğunu birlikte incelediler." }
+  ],
+  "evidence": [
+    {
+      "key": "kat-plani",
+      "sort": 1,
+      "type": "Kat Planı",
+      "title": "Ofis Kat Planı",
+      "description": "Toplantı odası, arşiv ve güvenlik odası aynı koridora açılıyor.",
+      "content": "Arşiv odasına yalnızca kartla girilebiliyor. Güvenlik odası arşivin tam karşısında; toplantı odası koridorun sonunda ve camları buzlu.",
+      "media_url": "/case-media/galata-patent-dosyasi/kat-plani.jpg"
+    },
+    {
+      "id": "6b5168c9-fa2d-432d-9907-f2a58f66e85c",
+      "sort": 2,
+      "type": "Takvim",
+      "title": "Toplantı Takvimi",
+      "description": "Elif'in yatırımcı toplantısı sırasında ofis koridoru boş kalıyor.",
+      "content": "14.00 Boğaziçi Ventures toplantısı başlar (Elif Arman). 14.30 finans sunumu (Bora Demir). 15.10 toplantı biter. Toplantı boyunca koridorda kimse görevli değil."
+    },
+    {
+      "id": "eeed2152-7a9f-4827-af58-0c7d8f05ef65",
+      "sort": 3,
+      "type": "Sistem Kaydı",
+      "title": "Kart Erişim Dökümü",
+      "description": "Arşiv kapısı kayıtlarında 14.12 ile 14.19 arasında boşluk var.",
+      "content": "14.11'de B.DEMIR kartıyla güvenlik odası kapısı açılıyor. 14.12'de konsoldan arşiv kapısı için \"bakım modu\" başlatılıyor ve kayıt duruyor; 14.19'da sistem normale dönüyor. Bakım modu yalnızca güvenlik odasındaki konsoldan açılabilir.",
+      "media_url": "/case-media/galata-patent-dosyasi/erisim-dokumu.jpg",
+      "is_key_evidence": true
+    },
+    {
+      "key": "sesli-mesaj-1441",
+      "sort": 4,
+      "type": "Sesli Mesaj",
+      "title": "Güvenlik Hattı Sesli Mesajı 14.41",
+      "description": "Bora güvenlik hattına mesaj bırakıyor. Kayıp henüz fark edilmemiş.",
+      "content": "\"Derya Hanım, ben Bora. Sistemde bir dış saldırı izi görüyorum, arşivdeki patent dosyası tehlikede olabilir. Kayıtları bir kontrol edin.\" Dosyanın kaybolduğu ancak 15.30'da fark edildi.",
+      "media_url": "/case-media/galata-patent-dosyasi/sesli-mesaj-1441.mp3",
+      "is_key_evidence": true
+    },
+    {
+      "key": "kilit-ekrani",
+      "sort": 5,
+      "type": "Fotoğraf",
+      "title": "Unutulan Telefonun Kilit Ekranı",
+      "description": "Bora'nın toplantı odasında unuttuğu telefonda bildirimler beliriyor.",
+      "content": "Kilit ekranında üç bildirim var: bir bahis sitesinden \"hesabınız askıya alındı\" uyarısı, K. adlı kişiden \"Cuma'ya kadar 480. Uzatma yok.\" mesajı ve kayıtsız bir numaradan \"Sunum ne zaman bitiyor?\" sorusu.",
+      "media_url": "/case-media/galata-patent-dosyasi/kilit-ekrani.jpg"
+    },
+    {
+      "id": "d79e65f7-55a9-46dc-a691-87fac60b9757",
+      "sort": 6,
+      "type": "Belge",
+      "title": "Maaş Haczi Yazısı",
+      "description": "Finans birimine Bora Demir adına maaş haczi bildirimi gelmiş.",
+      "content": "İcra dairesinden gelen yazıda Bora Demir'in maaşının dörtte birine 612.000 TL'lik borç için haciz konduğu bildiriliyor. Yazı, Bora'nın kendi masasına düşmüş ve işleme alınmamış.",
+      "media_url": "/case-media/galata-patent-dosyasi/haciz-yazisi.jpg",
+      "is_key_evidence": true
+    },
+    {
+      "key": "nova-basvuru",
+      "sort": 7,
+      "type": "Belge",
+      "title": "Nova Medikal Başvuru Özeti",
+      "description": "Rakip firmanın pazartesi yaptığı başvuru, Lumen'in dosyasıyla aynı cümleleri taşıyor.",
+      "content": "Başvuru pazartesi 09.12'de yapılmış. İstem cümlelerinin üçü Lumen'in dosyasıyla kelimesi kelimesine aynı. Bu, sızıntının dosyanın tam metnine erişimi olan birinden geldiğini gösteriyor.",
+      "media_url": "/case-media/galata-patent-dosyasi/nova-basvuru.jpg"
+    }
+  ],
+  "hints": [
+    {
+      "id": "d54d4516-2a0a-434b-8d91-f053b61650da",
+      "title": "Komiserin notu",
+      "text": "Silinen erişim aralığı rastgele değil; toplantının başlamasından on iki dakika sonra açılıyor. Bakım modunu nereden açabilirsin?",
+      "media_url": "/case-media/galata-patent-dosyasi/ipucu-not.jpg"
+    },
+    {
+      "id": "36927279-9e9d-402c-a7e2-da317ca1d196",
+      "title": "Komiserden sesli mesaj",
+      "text": "14.41'deki sesli mesaj kayıptan önce bırakılmış. Henüz kimsenin bilmediği bir şeyi kim bilebilir?",
+      "media_url": "/case-media/galata-patent-dosyasi/ipucu-ses.mp3"
+    },
+    {
+      "id": "d430f121-477c-42b7-9ae3-d4c650617974",
+      "title": "Yanlış Yönlendirme",
+      "text": "Suçlu, konuştukça sürekli dış saldırı ihtimalini öne çıkarıyor."
+    }
+  ]
+}

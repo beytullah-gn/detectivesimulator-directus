@@ -1,0 +1,141 @@
+{
+  "slug": "ambar-17-sapmasi",
+  "scenario": {
+    "story": "Haydarpaşa'ya bakan liman sahasında gece vardiyası her zamanki gibi sakin başladı. Saat 22.00'de soğuk zincir konteynerinden indirilen 14 palet onkoloji ilacı, gümrük muayenesini beklemek üzere bonded depoya alınacaktı. Bu paletlerin her biri, iki derecelik bir sıcaklık sapmasında bile imha edilecek kadar hassastı.\n\n22.31'de merkez panele kısa bir soğutma uyarısı düştü. Yedi dakika sonra paletler bonded depo yerine, aylardır boş duran Ambar 17'ye doğru yola çıktı. Telsizden duyulan gerekçe tek cümleydi: \"Soğutma riski var, geçici rota.\"\n\nSabah sayımında iki palet eksik çıktı. Ambar 17'nin yan girişi gece boyunca açılıp kapanmış, ama ortada resmi bir sevk kaydı yoktu. Dispatch sistemindeki rota düzeltmesi ise ancak 23.17'de, vardiya kapandıktan sonra girilmişti.\n\nGümrük müdürlüğü dosyayı sana devretti. O gece dört kişi bu kararın bir parçasıydı: rotayı veren, akışı yöneten, evrağı bekleten ve alarmı okuyan. Biri yalan söylüyor.\n\nGörevin: Alarmın gerçek olup olmadığını, rotanın kimin kararı olduğunu ve eksik paletlerin nereye gittiğini ortaya çıkarmak.",
+    "briefing_audio_url": "/case-media/ambar-17-sapmasi/brifing.mp3",
+    "summary_for_ai": "Burak Sefer, Yıldız Lojistik'ten Ferit adlı bir taşeronla anlaşıp iki palet onkoloji ilacını dışarı çıkardı. 22.31'de soğutma sensörünü yazılımdan manuel resetleyip sahte bir alarm yarattı, 22.36'da telsizden Aylin'e yazılı onay olmadan paletleri Ambar 17'ye çekmesini söyledi, 22.39'da yan giriş turnikesini kendi dispatch yetkisiyle açtı ve dispatch düzeltme notunu ancak 23.17'de, vardiya kapandıktan sonra girdi. 23.52'de Ferit dispatch masasının telesekreterine 'iki palet yüklendi, araç çıktı, Burak Bey'e iletin' diye mesaj bıraktı. Aylin hatalı ama dürüst, Cihan evrak yığınıyla uğraşıyordu, Nisa grafikte gerçek ısı yükselişi olmadığını biliyor.",
+    "scenario_answer_rule": "Doğru suçlu: Burak Sefer. Güçlü bir gerekçe şu bağlardan en az ikisini kurar: soğutma grafiğinde ısı artışı olmayan manuel reset (sahte alarm), vardiya sonrası 23.17'de girilen dispatch düzeltmesi ve boş onay alanı, 22.39'da yan girişin dispatch yetkisiyle açılması, Yıldız Lojistik'ten Ferit'in 'Burak Bey'e iletin' diyen sesli mesajı (dış bağlantı ve motivasyon).",
+    "description": "Liman sahasında 14 palet onkoloji ilacı, bir soğutma alarmı gerekçesiyle boş duran Ambar 17'ye yönlendirilir; sabah iki palet eksiktir. Alarm, rota ve geç girilen dispatch notu birbirini tutmuyor."
+  },
+  "characters": [
+    {
+      "id": "6b0ffa4c-5db0-437c-a64c-8bcc8641cf53",
+      "description": "Operasyon akışını yöneten saha sorumlusu. Rota değişikliğini sonradan fark eder ve kararın dispatch tarafından geldiğini söyler.",
+      "personality": "Dengeli, disiplinli, sahayı iyi okur. Hatasını kabul eder ama suçu üstlenmez.",
+      "alibi": "22.30-22.50 arasında merkezi kontrol noktasında kamera ve telsiz kayıtlarıyla görünüyor.",
+      "question_prompts": ["Rota değişikliğini ilk nerede fark ettin?", "Burak alarm gerekçesini sana nasıl anlattı?", "Onay zincirinde hangi adım eksikti?"]
+    },
+    {
+      "id": "4857a4cd-1184-49ad-8efb-6edb2157558d",
+      "personality": "Kısa konuşur, baskı anında emrivaki yapar, soğukkanlı görünür. Sorular uzayınca prosedür ve yoğunluk bahanesine sığınır.",
+      "question_prompts": ["Soğutma alarmı hangi gerçek sensör kaydına dayanıyordu?", "Dispatch düzeltmesini neden vardiya kapanışından sonra girdin?", "Ambar 17 yan girişini kim açtırdı?"]
+    },
+    {
+      "id": "4efeb0ff-3bee-4a13-8ffa-f1a2fbcaf4e8",
+      "personality": "Kurala bağlı, inatçı, savunmacı. Her cümlesine bir mevzuat maddesi ekler."
+    },
+    {
+      "id": "ed759ca5-d65f-4b59-b7c3-384752523236",
+      "role": "Soğuk Zincir Analisti",
+      "description": "Soğuk zincir analisti. Isı sensörleri ve alarm grafikleri üzerinden fiziksel arıza olup olmadığını inceler."
+    }
+  ],
+  "relations": [
+    { "id": 43, "relation": "Aylin, Burak'ın gece kararlarını fazla kapalı buluyor." },
+    { "id": 44, "relation": "Burak, Cihan'ın evrak yığınını gecenin asıl sorunu olarak görüyor." },
+    { "id": 45, "relation": "Nisa, Burak'ın alarm anlatısının veriyle uyuşmadığını düşünüyor." },
+    { "id": 46, "relation": "Cihan, Aylin'in saha hızını bazen prosedüre aykırı derecede agresif buluyor." },
+    { "id": 47, "relation": "Aylin, Nisa'nın sensör okumalarına güveniyor ve ona alan açıyor." },
+    { "id": 48, "relation": "Nisa, Cihan'ın evrak odağını sahadaki gerçeği geç okumasına bağlıyor." }
+  ],
+  "evidence": [
+    {
+      "id": "68e8c5ef-66f5-4f01-b02a-151800c1a56e",
+      "sort": 1,
+      "type": "Tutanak",
+      "title": "İlk Olay Tutanağı",
+      "description": "22.40 sonrası kritik ilaç paletleri bonded depo yerine Ambar 17'ye yönlendirildi.",
+      "content": "Sabah sayımında 14 paletten 12'si Ambar 17'de bulundu. Rota değişikliği resmi planın parçası değil. Devir teslim ekibi alarm gerekçesini telsizden duymuş, ancak alarm kaydı ile dispatch notu aynı saati göstermiyor."
+    },
+    {
+      "id": "9cd24895-801f-4c61-ab9c-7c47de64725a",
+      "sort": 2,
+      "type": "Zaman Çizelgesi",
+      "title": "Gece Zaman Çizelgesi",
+      "description": "Alarm, rota değişikliği ve dispatch düzeltmesi aynı sırada görünmüyor.",
+      "content": "22.31 sensör reseti. 22.38 palet yön değişikliği. 22.39 Ambar 17 yan giriş turnikesi açılır. 23.17 dispatch düzeltmesi sisteme girilir. Resmi not, karar verildikten yaklaşık kırk dakika sonra düşüyor."
+    },
+    {
+      "key": "dispatch-log",
+      "sort": 3,
+      "type": "Sistem Kaydı",
+      "title": "Dispatch Sistem Dökümü",
+      "description": "Rota değişikliği ve düzeltme notu aynı kullanıcı hesabından girilmiş.",
+      "content": "Dökümde 22.38'deki rota değişikliği ve 23.17'deki düzeltme notu B.SEFER kullanıcısıyla görünüyor. Onay alanı iki kayıtta da boş.",
+      "media_url": "/case-media/ambar-17-sapmasi/dispatch-dokumu.jpg",
+      "is_key_evidence": true
+    },
+    {
+      "id": "aa07e6e1-2647-465d-ab8d-e72cd8a92758",
+      "sort": 4,
+      "type": "Belge",
+      "title": "Dispatch Düzeltme Notu",
+      "description": "Ambar değişikliği vardiya kapandıktan sonra notlara eklenmiş.",
+      "content": "Burak Sefer'in düzeltme girdisi resmi devir teslim saatinden sonra görünüyor. Notta \"soğutma riski nedeniyle geçici rota\" yazsa da onay zinciri eksik."
+    },
+    {
+      "id": "fb4d665b-e431-40d8-a8d7-b1c1058a56b6",
+      "sort": 5,
+      "type": "Grafik",
+      "title": "Soğutma Sensörü Grafiği",
+      "description": "Alarm eğrisi fiziksel arızadan çok manuel bir reset izine benziyor.",
+      "content": "Grafikte ani ısı yükselişi yok. Sıcaklık 22.31'e kadar 4,1 °C'de düz ilerliyor; aynı dakikada kısa bir veri kopması ve manuel reset işareti görülüyor. Gerçek bir soğutma arızasında eğrinin dakikalar içinde yükselmesi beklenirdi.",
+      "media_url": "/case-media/ambar-17-sapmasi/sogutma-grafigi.jpg"
+    },
+    {
+      "key": "radio-2236",
+      "sort": 6,
+      "type": "Telsiz Kaydı",
+      "title": "Telsiz Kaydı 22.36",
+      "description": "Rota emri telsizden veriliyor; yazılı onay sonraya bırakılıyor.",
+      "content": "Burak: \"Aylin, soğutmada alarm var. Paletleri Ambar 17'ye çek, yazılısı sonra gelir.\" Aylin: \"Yazılı onay olmadan mı?\" Burak: \"Sorumluluk bende. Hadi, vakit kaybetmeyelim.\"",
+      "media_url": "/case-media/ambar-17-sapmasi/telsiz-2236.mp3"
+    },
+    {
+      "id": "a94f7e87-8f20-4a7d-befa-eefd58d8ab61",
+      "sort": 7,
+      "type": "Tutanak",
+      "title": "Ambar 17 Giriş Çizelgesi",
+      "description": "Paletler bonded depo kapısı yerine Ambar 17'nin yan girişinden alınmış.",
+      "content": "Çizelgede bonded depo kapısı yerine yan giriş kullanılıyor. Bu kapı gece vardiyasında yalnızca dispatch yetkisiyle açılabiliyor."
+    },
+    {
+      "id": "e7348071-cd5d-4286-8ad4-8d2c2c3366d9",
+      "sort": 8,
+      "type": "Kamera",
+      "title": "Yan Giriş Kamera Karesi",
+      "description": "Kamera paletleri değil, yan giriş turnikesinde kullanılan yetkiyi gösteriyor.",
+      "content": "22.39'da yan giriş turnikesi dispatch supervisor yetkisiyle açılıyor. Görüntü paletleri tam göstermese de kararın kimden çıktığını daraltıyor.",
+      "media_url": "/case-media/ambar-17-sapmasi/kamera-yan-giris.jpg"
+    },
+    {
+      "key": "voicemail-ferit",
+      "sort": 9,
+      "type": "Sesli Mesaj",
+      "title": "Dispatch Masası Telesekreteri",
+      "description": "Gece 23.52'de dispatch masasının hattına bir taşeron firmadan mesaj bırakılmış.",
+      "content": "\"Dispatch, ben Ferit, Yıldız Lojistik. Ambar 17'deki iki palet yüklendi, araç çıktı. Burak Bey'e iletin, gerisini yarın konuşuruz.\" Yıldız Lojistik'in o gece için resmi bir iş emri yok.",
+      "media_url": "/case-media/ambar-17-sapmasi/telesekreter-ferit.mp3",
+      "is_key_evidence": true
+    }
+  ],
+  "hints": [
+    {
+      "id": "7ae95581-6534-4f50-8958-4c38e7d2267c",
+      "title": "Komiserin notu",
+      "text": "Alarm metnine takılma. Alarm gerçekten fiziksel bir arıza mı gösteriyor? Soğutma sensörü grafiğine bak.",
+      "media_url": "/case-media/ambar-17-sapmasi/ipucu-not.jpg"
+    },
+    {
+      "id": "22aeed7d-d615-47c6-8d0f-bbbc1f606b07",
+      "title": "Komiserden sesli mesaj",
+      "text": "Dispatch düzeltme notu rota değişikliğinden kırk dakika sonra girilmiş. Karar önce verilmiş, gerekçe sonradan yazılmış.",
+      "media_url": "/case-media/ambar-17-sapmasi/ipucu-ses.mp3"
+    },
+    {
+      "id": "2803e486-2580-4285-8504-e519218c6343",
+      "title": "Bağlantı",
+      "text": "Sahte alarm, geç not, yan giriş yetkisi ve gece bırakılan sesli mesaj aynı kişide buluşuyor."
+    }
+  ]
+}

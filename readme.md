@@ -100,3 +100,19 @@ MCP endpoint'i `http://localhost:8057/mcp` üstünden tokenlı initialize çağr
 - hint kullanma
 - interrogation
 - session detail okuma
+
+## Case Content
+
+Case stories, character texts, evidence (with image/audio `media_url`), hints and AI prompts are
+kept in `scripts/content/cases/*.json`. Build an idempotent SQL file and apply it to the database:
+
+```bash
+node scripts/content/build-content-sql.mjs > case-content.sql
+```
+
+New evidence gets a stable id derived from the case slug and its `key`, so re-running updates rows
+instead of duplicating them. Schema changes are in `scripts/migrations/`. The interrogation guard
+helpers are covered by `npm run test:game`.
+
+`OPENROUTER_MODEL` may list up to three free models separated by commas; later ones are used when
+the first is rate-limited.

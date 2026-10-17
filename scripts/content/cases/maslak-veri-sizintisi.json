@@ -1,0 +1,145 @@
+{
+  "slug": "maslak-veri-sizintisi",
+  "scenario": {
+    "description": "Maslak'taki bir analitik şirketinin en değerli müşteri segmentasyon modeli, satın alma görüşmelerinden iki gün önce rakibin sunumunda ortaya çıkar. Sızıntı bir sunucu bakımı gecesine saklanmış.",
+    "story": "Maslak'taki cam kulelerden birinin 21. katında Veritas Analitik, şirketi satın almak isteyen Kuzey Holding'le son görüşmelere hazırlanıyordu. Pazarlığın kalbinde tek bir dosya vardı: 1,2 milyon müşteriyi davranışlarına göre sekiz gruba ayıran segmentasyon modeli.\n\nPerşembe sabahı bir sektör konferansında rakip Pikselix sahneye çıktı. Perdedeki slaytta Veritas'ın modeli vardı; üstelik şirket içinde kullanılan, dışarıda kimsenin bilmediği grup isimleriyle: \"Sessiz Sadıklar\", \"Kaçış Eşiği\", \"Fiyat Avcıları\"...\n\nİlk bakışta herkes salı gecesini işaret etti. Sistem yöneticisi Emre Polat 02.00-03.00 arasında sunucu güncellemesi yapmış, admin panelinde onlarca hatalı giriş denemesi ve yetki karmaşası oluşmuştu. Gürültünün ortasında bir dosya kolayca kaybolabilirdi.\n\nAma bu dosya admin panelinden değil, başka bir kapıdan çıkmıştı.\n\nSatın alma ertelendi, hukuk ekibi alarmda. Dört kişinin modele tam erişimi vardı. Görevin: Dosyayı kimin dışarı aktardığını, gürültünün arkasına nasıl saklandığını ve neden yaptığını bulmak.",
+    "briefing_audio_url": "/case-media/maslak-veri-sizintisi/brifing.mp3",
+    "summary_for_ai": "Okan Vural, gizli freelance işler ve 287.000 TL'lik kart borcu yüzünden para sıkıntısındaydı. Salı gecesi Emre'nin 02.00-03.00 sunucu bakımı sırasında, 02.14'te admin panelinden değil kendi veri operasyon aracı hesabıyla (datatool/okan.vural) cohort_segments_v7 dosyasını dış bir SFTP sunucusuna aktardı ve Pikselix'teki bir bağlantıya sattı. Sızıntı perşembe 11.00'de konferansta fark edildi; Okan 11.24'te #olay kanalına, saat henüz kimse tarafından bilinmezken 'salı gecesi Emre'nin admin hesabında garip hareket var' yazarak Emre'yi işaret etti. 'Sessiz Sadıklar', 'Kaçış Eşiği', 'Fiyat Avcıları' etiketlerini şirket içinde Okan icat etmişti. Rana, Melis ve Emre masum; Emre'nin sesli notu exportun admin panelinden değil veri aracından yapıldığını söylüyor.",
+    "scenario_answer_rule": "Doğru suçlu: Okan Vural. Güçlü bir gerekçe şu bağlardan en az ikisini kurar: 02.14'teki exportun admin panelinden değil Okan'ın veri aracı hesabından yapılması, bakım penceresinin gürültüsünün kılıf olarak kullanılması, Okan'ın sızıntı saatini henüz kimse bilmezken Emre'yi suçlayan kanal mesajı, borç ve düzensiz freelance gelirleri (motivasyon), rakipteki etiketlerin Okan'ın icat ettiği iç isimler olması."
+  },
+  "characters": [
+    {
+      "id": "04b35aa6-0073-4e08-b11a-ec517169c3cd",
+      "role": "Veri Operasyon Lideri",
+      "description": "Segmentasyon modelini ürün, satış ve gelir verisiyle birleştiren veri operasyon sorumlusu.",
+      "background": "Gizli freelance işler ve kişisel borçlar yüzünden ek gelire ihtiyaç duyuyor.",
+      "personality": "Sakin görünür, hesapçı; zor sorularda teknik ayrıntıların arkasına saklanır.",
+      "alibi": "Bakım gecesi evden yalnızca dashboard raporlarını düzelttiğini söylüyor.",
+      "behavior_during_incident": "Konuyu sürekli admin yetkilerine ve bakım gürültüsüne çekti.",
+      "motive": "Borçlarını kapatmak için modeli rakipteki bir bağlantıya sattı.",
+      "secret_info": "Exportu bakım saatinde kendi veri aracı hesabıyla yaptı ve Emre'nin hatalı giriş gürültüsünü kalkan olarak kullandı.",
+      "question_prompts": ["Bakım gecesi hangi tablo ve dosyaları açtın?", "Rakipteki etiketler neden senin kullandığın isimlerle aynı?", "Emre'nin hesabını neden bu kadar erken şüpheli gösterdin?"]
+    },
+    {
+      "id": "505b45c6-0690-4bb5-b81e-f1dac15347d5",
+      "role": "Operasyon Direktörü",
+      "description": "Satın alma sürecini yürüten ve ekipler arası koordinasyonu sağlayan yönetici.",
+      "background": "Büyümeyi hızlandırmak için veriye dayalı hareket eden sert bir yönetici.",
+      "personality": "Net, hızlı karar veren, baskı altında soğukkanlı.",
+      "alibi": "Salı gecesi evdeydi; perşembe konferansta Pikselix sunumunu bizzat izledi.",
+      "behavior_during_incident": "Sızıntı netleşince önce admin loglarını istedi.",
+      "motive": "Şirket değerlemesini korumak ister; sızıntı ona doğrudan zarar verir.",
+      "secret_info": "Okan'ın son iki haftada raporların son hâlini herkesten sonra tekrar açtığını ve satın alma rakamlarını alışılmadık bir merakla sorduğunu fark etti.",
+      "question_prompts": ["Sızıntıyı ilk nasıl fark ettin?", "Okan'ın son iki haftadaki davranışında seni tedirgin eden neydi?", "Rakibin bu kadar hızlı hareket etmesini nasıl yorumladın?"]
+    },
+    {
+      "id": "b425a56d-d673-4154-b2fb-e370c0d69220",
+      "role": "Hukuk Müşaviri",
+      "description": "Satın alma ve kişisel veri risklerini yöneten hukuk danışmanı.",
+      "background": "Önceki şirketinde veri ihlali davalarıyla uğraşmış deneyimli avukat.",
+      "personality": "Ölçülü, şüpheci, kelimeleri dikkatle seçer.",
+      "alibi": "Salı gecesi NDA eklerini düzeltmek için geç saate kadar uzaktan çalıştı.",
+      "behavior_during_incident": "Sözleşme akışına dönüp kimin neye eriştiğini not etti.",
+      "motive": "Sızıntı hukuki riski büyütür; bunu istemesi rasyonel değil.",
+      "secret_info": "Okan'ın, modelin ticari değerini toplantılarda gereğinden fazla vurguladığını ve bir keresinde 'bu dosya dışarıda servet eder' dediğini not etti.",
+      "question_prompts": ["Sızıntının hukuki sonucu ne olacak?", "Okan'ın söylemlerinde dikkatini çeken neydi?", "Bu dosyanın değerini ekipte kimler gerçekten anlıyordu?"]
+    },
+    {
+      "id": "be0264e0-d94d-418e-85bb-ccac1f25dfc2",
+      "role": "Sistem Yöneticisi",
+      "description": "Sunucu bakımları, yedekleme ve erişim anahtarlarından sorumlu sistem yöneticisi.",
+      "background": "Dağınık görünse de altyapıyı tek başına ayakta tutuyor.",
+      "personality": "Savunmacı, hızlı konuşur, teknik ayrıntıyla nefes alır.",
+      "alibi": "Bakım notlarını kapatmak için sunucu odasında olduğunu söylüyor; bina giriş kaydı bunu doğruluyor.",
+      "behavior_during_incident": "İlk anda panikledi ama log farklarını açıklayabildi.",
+      "motive": "Yetersiz görünmekten korkar ama sızıntıdan kazancı yok.",
+      "secret_info": "Export isteğinin admin panelinden değil veri aracı üzerinden, okan.vural hesabıyla yapıldığını biliyor; bunu sesli not olarak kaydetti.",
+      "question_prompts": ["Bakım sırasında seni şaşırtan hareket neydi?", "Export hangi kapıdan çıktı?", "Admin loglarında seni aklayan fark ne?"]
+    }
+  ],
+  "relations": [
+    { "id": 31, "relation": "Rana, Okan'ın rapor kontrolünü gereksiz uzatmasından rahatsız." },
+    { "id": 32, "relation": "Okan, Emre'nin dağınık çalışma düzeninin sistemi riske attığını düşünüyor." },
+    { "id": 33, "relation": "Melis, Rana'nın hız baskısının ekipte aceleci kararlar doğurduğunu düşünüyor." },
+    { "id": 34, "relation": "Emre, Okan'ın teknik terimlerle konuyu bulandırdığını seziyor." },
+    { "id": 35, "relation": "Melis, Okan'ın verinin değerini hukuki riskten daha çok önemsediğini fark ediyor." },
+    { "id": 36, "relation": "Rana, Emre'ye güvenmek istiyor ama panik hâli onu zorluyor." }
+  ],
+  "evidence": [
+    {
+      "id": "a7f1d8f7-53c8-46e3-9f0f-52ffd7a2a8a7",
+      "sort": 1,
+      "type": "Rapor",
+      "title": "Bakım Penceresi Özeti",
+      "description": "Salı gecesi sunucu bakımı sırasında kısa süreli bir erişim karmaşası oluşmuş.",
+      "content": "02.00-03.00 arasında admin panelinde 37 hatalı giriş denemesi ve yetki yenileme kaydı var; çoğu Emre'nin bakım betiklerinden geliyor. Aynı zaman aralığında veri araçları açık kalmış."
+    },
+    {
+      "id": "90f0d640-5038-48bc-bbad-880cd27fd66d",
+      "sort": 2,
+      "type": "Sistem Kaydı",
+      "title": "Dışa Aktarım Kaydı",
+      "description": "Bakım penceresinde segmentasyon dosyası dışarı aktarılmış.",
+      "content": "02.14.07'de cohort_segments_v7 dosyası (48,2 MB) dış bir SFTP sunucusuna gönderilmiş. İstek admin panelinden değil, veri operasyon aracından ve datatool/okan.vural hesabından gelmiş.",
+      "media_url": "/case-media/maslak-veri-sizintisi/export-kaydi.jpg",
+      "is_key_evidence": true
+    },
+    {
+      "key": "emre-sesli-not",
+      "sort": 3,
+      "type": "Ses Kaydı",
+      "title": "Emre'nin Sesli Notu",
+      "description": "Sistem yöneticisi logları incelerken kendine bir sesli not bırakmış.",
+      "content": "\"Not: Admin panelinde export yok. Bütün hatalı girişler benim betiklerim. Dosya veri aracından çıkmış, iki on dördü yedi geçe. Hesap okan nokta vural. Bunu Rana Hanım'a göstermem lazım.\"",
+      "media_url": "/case-media/maslak-veri-sizintisi/emre-sesli-not.mp3"
+    },
+    {
+      "key": "olay-kanali",
+      "sort": 4,
+      "type": "Ekran Görüntüsü",
+      "title": "#olay Kanalı Mesajları",
+      "description": "Sızıntı duyulduktan hemen sonra şirket içi kanalda yazılanlar.",
+      "content": "11.02 Rana: \"Pikselix sunumunda bizim model var. Herkes kanala.\" 11.24 Okan: \"Salı gecesi Emre'nin admin hesabında garip hareket var, oradan bakın.\" 11.31 Emre: \"Hangi saatten bahsediyorsun? Daha kimse log açmadı.\"",
+      "media_url": "/case-media/maslak-veri-sizintisi/olay-kanali.jpg",
+      "is_key_evidence": true
+    },
+    {
+      "key": "pikselix-slayt",
+      "sort": 5,
+      "type": "Fotoğraf",
+      "title": "Pikselix Sunum Slaytı",
+      "description": "Rakibin konferansta gösterdiği slayt, iç etiketleri birebir kullanıyor.",
+      "content": "Slayttaki sekiz grubun adı Veritas'ın iç wiki sayfasıyla aynı. Wiki geçmişine göre bu isimleri sekiz ay önce Okan Vural oluşturmuş; şirket dışında hiç kullanılmamışlar.",
+      "media_url": "/case-media/maslak-veri-sizintisi/pikselix-slayt.jpg"
+    },
+    {
+      "id": "0615e120-bd75-47be-8b9d-3890b667a4c8",
+      "sort": 6,
+      "type": "Banka Dökümü",
+      "title": "Okan'ın Hesap Hareketleri",
+      "description": "Okan'ın hesabında düzensiz freelance tahsilatları ve büyük bir borç yapılandırması var.",
+      "content": "Son altı ayda farklı şirketlerden düzensiz \"danışmanlık\" ödemeleri ve 287.000 TL'lik kart borcu yapılandırması görünüyor. Sızıntıdan bir gün sonra yurt dışı bir hesaptan 150.000 TL giriş yapılmış.",
+      "media_url": "/case-media/maslak-veri-sizintisi/hesap-dokumu.jpg",
+      "is_key_evidence": true
+    }
+  ],
+  "hints": [
+    {
+      "id": "b13ee0b0-5410-4066-9c13-22e476d6801b",
+      "title": "Komiserin notu",
+      "text": "Gürültü admin panelinde. Asıl hareket başka bir kapıdan çıkmış olabilir; dışa aktarım kaydına dikkatli bak.",
+      "media_url": "/case-media/maslak-veri-sizintisi/ipucu-not.jpg"
+    },
+    {
+      "id": "819c66c1-28f3-4414-8ec7-6a1d5161d5cb",
+      "title": "Komiserden sesli mesaj",
+      "text": "Sızıntının saati henüz kimse tarafından bilinmezken salı gecesini işaret eden kişi kim?",
+      "media_url": "/case-media/maslak-veri-sizintisi/ipucu-ses.mp3"
+    },
+    {
+      "id": "9b638eef-1b64-4033-90ee-a71bfb4cce64",
+      "title": "Export Yolu",
+      "text": "Yetki sorusu kadar, dosyanın hangi araçla ve hangi hesapla dışarı çıktığı da belirleyici."
+    }
+  ]
+}

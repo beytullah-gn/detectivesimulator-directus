@@ -1,0 +1,155 @@
+{
+  "slug": "karakoy-konteyner-dosyasi",
+  "scenario": {
+    "description": "Karaköy'deki gümrüklü depoda muayene bekleyen bir konteynerden sekiz kasa tıbbi sensör kaybolur. Sistemde her şey temiz görünürken manifesto gece yarısı değişmiş, muayene ertelenmiş ve kapıdan kayıt dışı bir kamyon çıkmıştır.",
+    "story": "Rotterdam'dan gelen MSKU 482190-3 numaralı konteyner, Karaköy'deki gümrüklü depoda sabah muayenesini bekliyordu. İçinde 40 kasa insülin pompası sensörü vardı; her kasanın piyasa değeri bir araba fiyatındaydı.\n\nAkşam 22.05'te sisteme yüklenen manifesto 40 kasayı gösteriyordu. Gece yarısı vardiya değişti; depoda bir saatlik personel boşluğu oluştu. Sabah 07.30'daki sayımda konteynerden yalnızca 32 kasa çıktı. Şaşırtıcı olan şuydu: sistemdeki manifesto da artık 32 kasa diyordu.\n\nGece boyunca bir şey olmuştu ama kâğıt üzerinde hiçbir şey eksik değildi. Seal numarası teslim tutanağında elle düzeltilmiş, sabah 06.00'daki muayene son anda 10.00'a kaydırılmış, rıhtımdaki vinç bir saat arıza vermişti.\n\nLiman işletmesi herkesin önce gece vardiyasındaki depo sorumlusuna baktığını söylüyor. Ama bu kadar temiz bir kayıp, bu kadar düzenli bir kâğıt işi tesadüf olamaz.\n\nGörevin: Kaybın sahada mı yoksa kâğıt üzerinde mi başladığını, gece kimin hangi kaydı değiştirdiğini ve sekiz kasanın limandan nasıl çıktığını bulmak.",
+    "briefing_audio_url": "/case-media/karakoy-konteyner-dosyasi/brifing.mp3",
+    "summary_for_ai": "Seda Alkan, kardeşi Arda'nın ceza davasında 'yardım' karşılığı borçlandığı Hamit adlı birinin kaçakçılık ağına çalışıyordu. 23.50'de Yusuf'u telefonla arayıp 'muayene sabaha kaldı, siz vardiyayı devredin, evrakı ben hallederim' diyerek sistemden uzaklaştırdı. 23.58'de 'evrak eksikliği' gerekçesiyle muayeneyi 06.00'dan 10.00'a erteletti. 00.47'de evindeki hattan (farklı IP) sisteme uzaktan bağlanıp manifestonun ikinci versiyonunu 32 kasa olarak yükledi. 01.22'de 34 KN 2217 plakalı kamyon 'boş dönüş' beyanıyla kapıdan çıktı ve sekiz kasayı götürdü. Yusuf'un teslim tutanağındaki seal düzeltmesi, Seda'nın telefonda okuduğu numarayla yapıldı. Masasındaki el notunda 'H. yine aradı. Bu sevkiyattan sonra Arda'nın dosyası kapanacak dedi.' yazıyor. Yusuf, Ece ve Mert masum.",
+    "scenario_answer_rule": "Doğru suçlu: Seda Alkan. Güçlü bir gerekçe şu bağlardan en az ikisini kurar: 00.47'de farklı bir IP'den yüklenen ikinci manifesto (32 kasa), 23.58'deki muayene erteleme talebi, Yusuf'u telefonla vardiyadan uzaklaştırması ve onu günah keçisi olarak kullanması, 01.22'de kayıt dışı çıkan kamyon, kardeşinin davası ve 'H.' notu (dış baskı/motivasyon)."
+  },
+  "characters": [
+    {
+      "id": "2f5971b4-e842-4dfc-ba87-036438e054c7",
+      "role": "Depo Vardiya Sorumlusu",
+      "description": "Konteyner açılış-kapanış ve seal kontrolünü yapan saha sorumlusu.",
+      "background": "Yirmi yıldır limanda çalışıyor, prosedürleri ezbere biliyor ama evrak işini sevmiyor.",
+      "personality": "Yorgun, temkinli, bazen savunmacı. Kısa, sert cümlelerle konuşur.",
+      "alibi": "Gece yarısı vardiya tesliminde bir saatlik personel eksiğiyle uğraştığını, 00.10'da evine gittiğini anlatıyor.",
+      "behavior_during_incident": "Eksik kasalar çıkınca ilk refleksi kendi teslim tutanağını savunmak oldu.",
+      "motive": "Hatalı görünmekten korkuyor ama yük kaybından doğrudan kazancı yok.",
+      "secret_info": "23.50'de Seda'nın aradığını, 'muayene sabaha kaldı, evrakı ben hallederim' dediğini ve seal numarasını telefonda ona Seda'nın okuduğunu biliyor; bunu söylemekten çekiniyor çünkü düzeltmeyi kendi eliyle yaptı.",
+      "question_prompts": ["Seal numarasını neden elle düzelttin?", "Gece seni kim aradı ve ne dedi?", "Vardiya değişimin neden tam muayene öncesine denk geldi?"]
+    },
+    {
+      "id": "c1a40445-d3fe-4ba8-8198-a6b1dd126c8b",
+      "role": "Rota Analisti",
+      "description": "Konteyner hareketlerini ve GPS sapmalarını raporlayan veri analisti.",
+      "background": "Eski denizcilik yazılımcısı; sahadaki usulsüzlükleri veriden okur.",
+      "personality": "Meraklı, teknik, doğrudan.",
+      "alibi": "Gece ofiste rota panelini izlediğini ve saha kamera raporunu beklediğini söylüyor.",
+      "behavior_during_incident": "Manifesto versiyonları arasındaki zaman farkını ilk o çıkardı.",
+      "motive": "Usulsüzlüğü ortaya çıkarmak onun çıkarına; örtbas etmesi için neden yok.",
+      "secret_info": "Seda'nın onay kullanıcısıyla gece iki farklı IP adresinden bağlantı yapıldığını ve 01.22'de kapıdan çıkan 34 KN 2217 plakalı kamyonun o gece hiçbir iş emrinde olmadığını biliyor.",
+      "question_prompts": ["GPS hattında seni şüphelendiren ilk veri neydi?", "Seda'nın uzaktan bağlantısı kayıtlara nasıl yansıdı?", "Kayıp fiziksel mi yoksa kâğıt üstünde mi başladı?"]
+    },
+    {
+      "id": "cb303361-85ac-4ca0-be9d-2c6c0bf878c0",
+      "role": "Liman Operasyon Şefi",
+      "description": "Gece vardiyasında depolama ve sevkiyat akışlarını koordine ediyor.",
+      "background": "Liman sahasında büyümüş, disiplin konusunda taviz vermeyen bir yönetici.",
+      "personality": "Pratik, sert, kriz anında çok hızlı.",
+      "alibi": "01.00 civarında rıhtımdaki vinç arızasıyla uğraştığını söylüyor; bakım ekibi onu doğruluyor.",
+      "behavior_during_incident": "Eksik kasaları görür görmez gümrük terminaline haber verdi.",
+      "motive": "Operasyonun itibarını kaybetmek istemez; kasıtlı kayıp kendi pozisyonunu yakar.",
+      "secret_info": "Seda'nın gece sistemine uzaktan bağlandığını raporda gördü ve muayenenin ertelenmesine kendisinin onay vermediğini biliyor.",
+      "question_prompts": ["Manifesto değişikliğini ilk ne zaman fark ettin?", "Muayeneyi 10.00'a kim kaydırdı?", "Yusuf'un vardiya değişimi sence neyi perdeledi?"]
+    },
+    {
+      "id": "df5596b7-1e83-463e-b291-41056b7c4e4d",
+      "role": "Gümrük Müşavir Temsilcisi",
+      "description": "Muayene evraklarını ve beyan sürecini yöneten dış aracılık uzmanı.",
+      "background": "Kardeşinin ceza davası yüzünden karanlık lojistik çevrelere borçlandı.",
+      "personality": "Akıcı konuşur, sakin görünür; zor anlarda mevzuatı kalkan gibi kullanır ve anlatısını değiştirir.",
+      "alibi": "Gece evraktaki bir eksik için sisteme yalnızca uzaktan, kısa bir süre girdiğini söylüyor.",
+      "behavior_during_incident": "Sorular derinleştikçe Yusuf'un vardiya karmaşasını öne çıkardı.",
+      "motive": "Kardeşinin davasında kullanılan borç baskısı yüzünden ağ için sahte beyan hazırladı.",
+      "secret_info": "Muayeneyi erteletti, ikinci manifestoyu kendi evinden yükledi ve Yusuf'u telefonla sahadan uzaklaştırdı.",
+      "question_prompts": ["Manifestonun ikinci versiyonu neden gece yarısından sonra yüklendi?", "Muayeneyi 10.00'a neden kaydırdın?", "Yusuf'un vardiya karmaşasını neden sürekli öne çıkarıyorsun?"]
+    }
+  ],
+  "relations": [
+    { "id": 25, "relation": "Ece, Yusuf'un saha tecrübesine güveniyor ama evrak disiplinini zayıf buluyor." },
+    { "id": 26, "relation": "Yusuf, Seda'nın sahaya inmeden emir vermesinden rahatsız." },
+    { "id": 27, "relation": "Seda, Mert'in veri raporlarını gereksiz ayrıntı olarak görüyor." },
+    { "id": 28, "relation": "Mert, Ece'nin saha sezgisine teknik kanıtlarla destek verdiğini düşünüyor." },
+    { "id": 29, "relation": "Ece, Seda'nın gece gelen belge baskılarını prosedür dışı buluyor." },
+    { "id": 30, "relation": "Mert, Yusuf'un hata yapabileceğini düşünse de onu doğrudan fail görmüyor." }
+  ],
+  "evidence": [
+    {
+      "id": "7cd97ed9-4d91-42f5-a2bf-2bafc6fcf985",
+      "sort": 1,
+      "type": "Belge",
+      "title": "Manifesto Karşılaştırması",
+      "description": "Aynı konteyner için gece iki farklı beyan kaydı açılmış.",
+      "content": "Birinci versiyon 22.05'te yüklenmiş: 40 kasa. İkinci versiyon 00.47'de yüklenmiş: 32 kasa. İkinci versiyonda tıbbi sensör kasalarının adedi düşürülmüş ve ağırlık bilgisi elle değiştirilmiş.",
+      "media_url": "/case-media/karakoy-konteyner-dosyasi/manifesto.jpg",
+      "is_key_evidence": true
+    },
+    {
+      "id": "defacb90-f6dd-45f3-8bcb-80c186954738",
+      "sort": 2,
+      "type": "Sistem Kaydı",
+      "title": "Uzaktan Giriş Kaydı",
+      "description": "Gümrük paneline muayeneden saatler önce uzaktan bağlanılmış.",
+      "content": "S.ALKAN kullanıcısı 21.40'ta ofis IP'sinden, 00.47'de ise farklı bir ev internet hattından bağlanıyor. İkinci bağlantıda tek işlem yapılmış: manifesto v2 yüklemesi.",
+      "media_url": "/case-media/karakoy-konteyner-dosyasi/uzaktan-giris.jpg",
+      "is_key_evidence": true
+    },
+    {
+      "key": "telefon-2350",
+      "sort": 3,
+      "type": "Telefon Kaydı",
+      "title": "Depo Hattı Kaydı 23.50",
+      "description": "Depo hattına gelen kayıtlı bir görüşme.",
+      "content": "Seda: \"Yusuf Bey, muayene sabaha kaldı. Siz vardiyayı devredin, evrakı ben hallederim.\" Yusuf: \"Seal numarası tutmuyor ama.\" Seda: \"Doğrusunu ben okuyayım, siz düzeltin.\"",
+      "media_url": "/case-media/karakoy-konteyner-dosyasi/telefon-2350.mp3",
+      "is_key_evidence": true
+    },
+    {
+      "id": "82543988-2635-4df3-8adf-93f4c62d699d",
+      "sort": 4,
+      "type": "Tutanak",
+      "title": "Vardiya Teslim Notu",
+      "description": "Yusuf'un teslim tutanağında seal numarası el yazısıyla düzeltilmiş.",
+      "content": "Seal numarası 7731904 üstü çizilip 7731940 yazılmış. Düzeltme saati 23.55. İkinci manifesto bu numarayla eşleşiyor."
+    },
+    {
+      "key": "erteleme",
+      "sort": 5,
+      "type": "Belge",
+      "title": "Muayene Erteleme Talebi",
+      "description": "Sabah muayenesi son anda 10.00'a kaydırılmış.",
+      "content": "23.58'de \"eksik evrak\" gerekçesiyle muayene saatinin 06.00'dan 10.00'a alınması talep ediliyor. Talep eden: Seda Alkan. Operasyon şefi onayı alanı boş.",
+      "media_url": "/case-media/karakoy-konteyner-dosyasi/erteleme-talebi.jpg"
+    },
+    {
+      "key": "kapi-kaydi",
+      "sort": 6,
+      "type": "Sistem Kaydı",
+      "title": "Liman Kapısı Çıkış Kaydı",
+      "description": "01.22'de iş emri olmayan bir kamyon kapıdan çıkıyor.",
+      "content": "34 KN 2217 plakalı kamyon 01.22'de \"boş dönüş\" beyanıyla çıkış yapıyor. O gece bu plaka için hiçbir iş emri yok. Kamyon 00.55'te depoya girmiş; vinç arızası nedeniyle rıhtım kamerası 00.58-01.40 arası kapalı.",
+      "media_url": "/case-media/karakoy-konteyner-dosyasi/kapi-kaydi.jpg"
+    },
+    {
+      "key": "masa-notu",
+      "sort": 7,
+      "type": "Fotoğraf",
+      "title": "Seda'nın Masasındaki Not",
+      "description": "Seda'nın ajandasının arasından bir not çıkmış.",
+      "content": "El yazısıyla: \"H. yine aradı. Bu sevkiyattan sonra Arda'nın dosyası kapanacak dedi. 34 KN — 01.00.\" Arda, Seda'nın davası süren kardeşi.",
+      "media_url": "/case-media/karakoy-konteyner-dosyasi/masa-notu.jpg",
+      "is_key_evidence": true
+    }
+  ],
+  "hints": [
+    {
+      "id": "dd26837f-3a0e-4b20-b7c3-d004dde7a2a1",
+      "title": "Komiserin notu",
+      "text": "Kayıp sahadan önce kâğıt üzerinde başlıyor. İkinci manifesto nereden ve kimin kullanıcısıyla yüklendi?",
+      "media_url": "/case-media/karakoy-konteyner-dosyasi/ipucu-not.jpg"
+    },
+    {
+      "id": "09e2661f-72b2-4f85-917e-b7d01fe3ddbc",
+      "title": "Komiserden sesli mesaj",
+      "text": "Muayeneyi erteleyen, Yusuf'u sahadan uzaklaştıran ve gece manifestoyu değiştiren kişi aynı mı?",
+      "media_url": "/case-media/karakoy-konteyner-dosyasi/ipucu-ses.mp3"
+    },
+    {
+      "id": "f0c5a943-fc19-4550-9359-2ac1b94bf892",
+      "title": "Hazır Günah Keçisi",
+      "text": "Herkesin önce Yusuf'a bakması, bunu planlayan biri olduğuna işaret ediyor olabilir."
+    }
+  ]
+}

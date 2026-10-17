@@ -379,6 +379,14 @@ const collectionDefinitions = [
         width: "half",
         defaultValue: 0,
       }),
+      createTextField("story", {
+        interfaceType: "input-multiline",
+        note: "Case story shown to the player in the briefing and case file.",
+      }),
+      createTextField("briefing_audio_url", {
+        width: "half",
+        note: "Optional narrated briefing (audio URL or /case-media path).",
+      }),
       createTextField("summary_for_ai", {
         interfaceType: "input-multiline",
         note: "Private scenario summary for the interrogation model.",
@@ -465,6 +473,10 @@ const collectionDefinitions = [
       createTextField("title", { required: true, width: "half" }),
       createTextField("description", { interfaceType: "input-multiline" }),
       createTextField("content", { interfaceType: "input-multiline" }),
+      createTextField("media_url", {
+        width: "half",
+        note: "Optional image or audio for this evidence (URL or /case-media path).",
+      }),
       createBooleanField("is_key_evidence"),
       createM2OField("file", "directus_files", {
         interfaceType: "file",
@@ -499,6 +511,10 @@ const collectionDefinitions = [
       createTextField("text", { required: true, interfaceType: "input-multiline" }),
       createTextField("type", { width: "half" }),
       createIntegerField("reveal_order", { width: "half", defaultValue: 1 }),
+      createTextField("media_url", {
+        width: "half",
+        note: "Optional image or audio clue (URL or /case-media path).",
+      }),
       createM2OField("file", "directus_files", {
         interfaceType: "file",
         width: "half",
@@ -713,6 +729,11 @@ const DEFAULT_PROMPT_TEXTS = {
     "Connect motive, contradictions, and evidence clearly.",
     "Answer in Turkish.",
   ].join(" "),
+  detective_final_review: [
+    "Evaluate the player's final accusation against the hidden answer rule.",
+    'Return only JSON: {"isValid": boolean, "feedback": "90-150 word Turkish commissioner review with 2-4 \'- \' bullets"}.',
+    "Answer in Turkish.",
+  ].join(" "),
   detective_final_feedback_failure: [
     "The player did not solve the detective case correctly.",
     "Do not reveal the culprit directly.",
@@ -722,6 +743,11 @@ const DEFAULT_PROMPT_TEXTS = {
 };
 
 const promptSeedDefinitions = [
+  {
+    name: "detective_final_review",
+    description: "Single-call final verdict: validates the reasoning and writes the commissioner feedback.",
+    system_prompt: DEFAULT_PROMPT_TEXTS.detective_final_review,
+  },
   {
     name: "detective_interrogation",
     description: "Base suspect roleplay instructions for interrogation.",
@@ -1292,6 +1318,8 @@ async function main() {
     "mobile_teaser",
     "popularity_score",
     "cover_image",
+    "story",
+    "briefing_audio_url",
   ];
   const characterReadFields = [
     "sort",
@@ -1320,6 +1348,7 @@ async function main() {
     "description",
     "content",
     "file",
+    "media_url",
     "is_key_evidence",
   ];
   const relationReadFields = [

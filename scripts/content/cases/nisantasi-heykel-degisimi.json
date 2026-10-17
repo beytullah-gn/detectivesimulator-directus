@@ -1,0 +1,157 @@
+{
+  "slug": "nisantasi-heykel-degisimi",
+  "scenario": {
+    "description": "Nişantaşı'ndaki bir konakta, sponsor brunch'ı sırasında bronz bir heykel önceden hazırlanmış bir replikayla değiştirilir. Servis koridorundaki üç dakikalık boşluk ve iki haftalık bir fatura olayın anahtarı.",
+    "story": "Nişantaşı'nın ara sokaklarındaki Konak Sanat Evi, pazar günü sponsorlarına küçük bir brunch veriyordu. Salonun ortasında heykeltıraş Hüsnü Aral'ın 1964 tarihli bronz etüdü \"Rüzgâra Karşı\" duruyordu. Eser ertesi hafta bir koleksiyonere satılacaktı; sigorta değeri 6,8 milyon lira.\n\nSaat 11.40'ta konservatör Mina Aksoy heykelin yüzeyini son kez kontrol etti. 12.30'da sponsor turu başladı. 12.41'de servis koridorunda bir catering arabası sıkıştı; koridor üç dakika boyunca kimsenin bakmadığı bir geçide döndü.\n\nSaat 15.30'da misafirler dağıldıktan sonra Mina heykelin yanından geçerken burnuna taze patina kokusu geldi. Tabandaki imza, olması gerekenden sığdı. Salondaki heykel, haftalar önce hazırlanmış kusursuza yakın bir kopyaydı.\n\nKimse eseri taşırken görülmemişti. Konaktaki dört kişi heykelin o gün nerede, ne zaman ve kimin gözetiminde olduğunu biliyordu: sergiyi kuran küratör, servisi yöneten prodüktör, eseri koruyan konservatör ve satışı yürüten direktör.\n\nGörevin: Değişimin nasıl planlandığını, hangi boşlukta yapıldığını ve kimin bundan kazanç sağlayacağını bulmak.",
+    "briefing_audio_url": "/case-media/nisantasi-heykel-degisimi/brifing.mp3",
+    "summary_for_ai": "Levent Ersoy, bir koleksiyonere olan özel borcunu kapatmak için orijinal bronz etüdü ona vermeye karar verdi. İki hafta önce kendi şirketi LE Danışmanlık adına Kaya Döküm Atölyesi'ne '1:1 bronz kopya, patina uygulamalı' sipariş verip faturasını ödedi. Pazar sabahı 09.02 ve 10.47'de sigorta şirketine iki ayrı e-postayla eserin ikame değerini sordu. 12.41'de servis koridorunda catering arabası sıkışınca Tarık'ın 'kimse geçmesin' uyarısına rağmen telsizden 'ben arkadan geçiyorum' deyip koridoru kullandı ve 12.41-12.44 arasında replikayı standa koyup orijinali servis asansörüne indirdi. Sonra şüpheyi konservasyon ekibinin taşıma hatalarına çekmeye çalıştı. Defne, Tarık ve Mina masum.",
+    "scenario_answer_rule": "Doğru suçlu: Levent Ersoy. Güçlü bir gerekçe şu bağlardan en az ikisini kurar: LE Danışmanlık adına kesilen döküm atölyesi faturası (önceden hazırlanmış replika), 12.41-12.44 servis koridoru boşluğu ve Levent'in telsizde koridoru kullanması, sabah iki kez sorulan sigorta ikame değeri, borç motivasyonu, şüpheyi konservasyon ekibine yöneltme çabası."
+  },
+  "characters": [
+    {
+      "id": "21439e32-309a-495d-9df5-5f8419046a7b",
+      "role": "Sergi Küratörü",
+      "description": "Heykelin sunum senaryosunu ve mekân akışını hazırlayan küratör.",
+      "background": "Butik koleksiyon evlerinde eser yerleşimi konusunda uzman.",
+      "personality": "Zevk sahibi, dikkatli, kontrol kaybına tahammülsüz.",
+      "alibi": "Sponsor turu başladığında ana salonda koleksiyonerleri gezdiriyordu.",
+      "behavior_during_incident": "Eserin taban çizgisindeki ufak farkı Mina'dan sonra ilk o fark etti.",
+      "motive": "Mekânın itibarı onun üzerinden okunuyor; değişim ona zarar verir.",
+      "secret_info": "Levent'in sabah sigorta değerini iki kez sorduğunu duydu ve turun ortasında Levent'in bir süre ortadan kaybolduğunu fark etti.",
+      "question_prompts": ["Brunch sırasında heykel standı hangi anlarda yalnız kaldı?", "Levent'in sponsor turundaki tavrı normal miydi?", "Replika kullanılmış olsaydı bunu ilk kim fark ederdi?"]
+    },
+    {
+      "id": "5074dc32-84a6-4bf8-9ba2-a1fa22939637",
+      "surname": "Ünal",
+      "name": "Tarık",
+      "role": "Etkinlik Prodüktörü",
+      "description": "Servis akışını, personel dolaşımını ve davet düzenini yöneten organizatör.",
+      "background": "Prestij etkinliklerinde kaosu sakin görüntünün arkasında yöneten isim.",
+      "personality": "Pratik, hızlı, bazen savruk.",
+      "alibi": "Servis koridorunda catering ekibiyle uğraştığını söylüyor.",
+      "behavior_during_incident": "Kendi kısmını savunurken ayrıntıları atladı ama zaman çizgisi tutarlı kaldı.",
+      "motive": "Dağınık görünmekten korkar ama eseri hedef almak için nedeni yok.",
+      "secret_info": "12.41'de koridoru kapattığı hâlde Levent'in telsizden 'ben arkadan geçiyorum' deyip servis kapısını kullandığını ve ana salona farklı yönden döndüğünü hatırlıyor.",
+      "question_prompts": ["Servis koridorundaki kargaşa ne zaman zirveye çıktı?", "Levent'in koridoru kullanması program dışı mıydı?", "Koridordan geçen biri servis asansörüne ulaşabilir mi?"]
+    },
+    {
+      "id": "6384a9a4-c93a-4dbb-a9ab-fccd33516953",
+      "role": "Konservatör",
+      "description": "Heykelin yüzey kontrolü ve ışık altındaki korunmasından sorumlu uzman.",
+      "background": "Restorasyon laboratuvarından çıkıp bağımsız koleksiyon projelerine geçmiş.",
+      "personality": "Sessiz, ayrıntı takıntılı, gözlemci.",
+      "alibi": "Brunch öncesi eser yüzeyini kontrol edip arka odaya paketleme malzemesi almaya gitti.",
+      "behavior_during_incident": "Taze patina kokusunu ve sığ imzayı görür görmez değişimden şüphelendi.",
+      "motive": "Uzmanlığı eseri korumak üzerine; değişimden kazancı yok.",
+      "secret_info": "Levent'in brunch sırasında standa beklenenden yakın temas ettiğini gördü ama o an önemsemedi. Replikanın patinasının en fazla iki haftalık olduğunu biliyor.",
+      "question_prompts": ["Replika ile orijinal arasındaki ilk somut fark neydi?", "Bu replika ne kadar sürede hazırlanır?", "Levent'in eseri elleme biçimi sende ne his uyandırdı?"]
+    },
+    {
+      "id": "b51bac4e-0c6e-479f-b2d1-165c3dc87b4a",
+      "role": "Özel Satış Direktörü",
+      "description": "Koleksiyoner ilişkilerini ve satış görüşmelerini yürüten yönetici.",
+      "background": "Birkaç yan anlaşma yüzünden özel borç baskısı altında.",
+      "personality": "Karizmatik, akıcı, hikâye kurmayı bilen biri. Köşeye sıkışınca konuyu sigorta prosedürlerine ve konservasyon hatalarına çeker.",
+      "alibi": "Sponsor masaları arasında sürekli dolaştığını ve eserden uzak olduğunu söylüyor.",
+      "behavior_during_incident": "Konuyu hızla konservasyon ekibinin taşıma hatalarına çevirmeye çalıştı.",
+      "motive": "Borcunu kapatmak için önceden hazırlattığı replikayla orijinali koleksiyonere yönlendirdi.",
+      "secret_info": "Servis koridorundaki kargaşa anını kullanıp değişimi kendisi yaptı; replikayı kendi şirketi adına döktürdü.",
+      "question_prompts": ["12.41'de servis koridorunda ne işin vardı?", "Sigorta değerini sabah neden iki kez sordun?", "LE Danışmanlık adına kesilen faturayı açıklar mısın?"]
+    }
+  ],
+  "relations": [
+    { "id": 37, "relation": "Defne, Levent'in etkinlik ritmini satış hikâyesine göre zorladığını düşünüyor." },
+    { "id": 38, "relation": "Levent, Mina'nın teknik titizliğini satış için bir engel olarak görüyor." },
+    { "id": 39, "relation": "Mina, Defne'nin düzenine güvenir ama kalabalık baskısını fazla riskli bulur." },
+    { "id": 40, "relation": "Tarık, Levent'in servis koridorunu kullanmasını program dışı buldu." },
+    { "id": 41, "relation": "Defne, Tarık'ın akışı toparladığını ama bazen fazla açık kapı bıraktığını biliyor." },
+    { "id": 42, "relation": "Mina, Levent'in esere gereksiz yakınlaştığını açıkça şüpheli buluyor." }
+  ],
+  "evidence": [
+    {
+      "key": "kat-plani",
+      "sort": 1,
+      "type": "Kat Planı",
+      "title": "Konak Kat Planı",
+      "description": "Heykel standı ana salonda, servis kapısının hemen yanında.",
+      "content": "Servis koridoru mutfaktan başlayıp ana salonun yan kapısına ve servis asansörüne açılıyor. Stand, yan kapıya dört adım mesafede.",
+      "media_url": "/case-media/nisantasi-heykel-degisimi/kat-plani.jpg"
+    },
+    {
+      "id": "3803f17e-ad81-4512-988c-73d38fd26f07",
+      "sort": 2,
+      "type": "Rapor",
+      "title": "Servis Koridoru Akışı",
+      "description": "Brunch sırasında servis koridorunda üç dakikalık kontrol boşluğu oluşuyor.",
+      "content": "12.41-12.44 arasında catering arabası koridorda sıkışıyor, personel mutfak tarafına çekiliyor. Bu sürede koridor ve servis asansörü gözetimsiz kalıyor."
+    },
+    {
+      "key": "telsiz-1241",
+      "sort": 3,
+      "type": "Telsiz Kaydı",
+      "title": "Servis Telsizi 12.41",
+      "description": "Koridor kapatılırken biri program dışı geçiyor.",
+      "content": "Tarık: \"Servis koridorunda araba sıkıştı, iki dakika kimse geçmesin.\" Levent: \"Ben arkadan geçiyorum Tarık, sponsorları salona alıyorum.\" Tarık: \"Levent Bey, orası program dışı!\"",
+      "media_url": "/case-media/nisantasi-heykel-degisimi/telsiz-1241.mp3",
+      "is_key_evidence": true
+    },
+    {
+      "id": "10eb6e31-cac6-4c8b-979f-a985b0c9b0e4",
+      "sort": 4,
+      "type": "Rapor",
+      "title": "Taban İmza Karşılaştırması",
+      "description": "Bronzun tabanındaki imza izi orijinalle uyuşmuyor.",
+      "content": "Orijinalin arşiv fotoğrafında imza 2,1 mm derinliğinde oyulmuş. Standdaki eserde aynı imza 0,6 mm ve döküm sonrası kazınmış. Patina en fazla iki haftalık.",
+      "media_url": "/case-media/nisantasi-heykel-degisimi/taban-karsilastirma.jpg",
+      "is_key_evidence": true
+    },
+    {
+      "id": "54a31fed-8f71-4878-bb23-75e7d514b33d",
+      "sort": 5,
+      "type": "E-posta",
+      "title": "Sigorta E-postaları",
+      "description": "Brunch sabahı sigorta şirketine iki ayrı e-posta gitmiş.",
+      "content": "09.02: \"Rüzgâra Karşı için güncel ikame bedelini teyit eder misiniz?\" 10.47: \"Eser hasar görür ya da değişirse ödeme kime yapılır?\" Gönderen: Levent Ersoy. Satış hazırlığı için bu soruların ikincisi gerekmiyor.",
+      "media_url": "/case-media/nisantasi-heykel-degisimi/sigorta-epostalari.jpg",
+      "is_key_evidence": true
+    },
+    {
+      "key": "dokum-faturasi",
+      "sort": 6,
+      "type": "Fatura",
+      "title": "Döküm Atölyesi Faturası",
+      "description": "İki hafta önce bir atölyeye bronz kopya siparişi verilmiş.",
+      "content": "Kaya Döküm Atölyesi, 3 Ekim: \"1:1 bronz kopya, kayıp mum döküm, patina uygulamalı, 42 cm\" — 185.000 TL. Fatura LE Danışmanlık adına kesilmiş. Ticaret sicilinde LE Danışmanlık'ın tek ortağı Levent Ersoy.",
+      "media_url": "/case-media/nisantasi-heykel-degisimi/dokum-faturasi.jpg",
+      "is_key_evidence": true
+    },
+    {
+      "key": "mina-sesli-not",
+      "sort": 7,
+      "type": "Ses Kaydı",
+      "title": "Mina'nın Sesli Notu",
+      "description": "Konservatör, değişimi fark ettiği an telefonuna not almış.",
+      "content": "\"Saat on beş otuz iki. Patina taze, kokusu hâlâ üstünde. İmza sığ, döküm sonrası kazınmış. Bu bir replika ve aceleyle değil, haftalar önce hazırlanmış.\"",
+      "media_url": "/case-media/nisantasi-heykel-degisimi/mina-sesli-not.mp3"
+    }
+  ],
+  "hints": [
+    {
+      "id": "946c1145-c4de-4943-ae89-b069cf4edc28",
+      "title": "Komiserin notu",
+      "text": "Bu değişim son dakika işi değil; iki haftalık bir patina, önceden verilmiş bir sipariş demek. Faturanın kime kesildiğine bak.",
+      "media_url": "/case-media/nisantasi-heykel-degisimi/ipucu-not.jpg"
+    },
+    {
+      "id": "4b00588d-15f4-4422-b5f8-f5e337873e74",
+      "title": "Komiserden sesli mesaj",
+      "text": "Ana salon değil, servis koridoru. 12.41'de koridor kapatılırken kim oradan geçti?",
+      "media_url": "/case-media/nisantasi-heykel-degisimi/ipucu-ses.mp3"
+    },
+    {
+      "id": "ff11b716-3a99-419d-a17b-a7aa9d615fb0",
+      "title": "Değer Bilgisi",
+      "text": "Eserin sigorta değeriyle sabah saatlerinde fazlasıyla ilgilenen kişiye tekrar bak."
+    }
+  ]
+}
