@@ -481,7 +481,40 @@ function getOpenRouterModels(env) {
   return models.slice(0, 3);
 }
 
+// Gemini (Google AI Studio key) is tried first when configured; OpenRouter's free models are the fallback.
+async function callGemini(env, messages, { maxTokens, temperature, json }) {
+  const response = await axios.post(
+    "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
+    {
+      model: env.GEMINI_MODEL || "gemini-flash-latest",
+      messages,
+      temperature,
+      max_tokens: maxTokens || 450,
+      reasoning_effort: env.GEMINI_REASONING || "none",
+      ...(json ? { response_format: { type: "json_object" } } : {}),
+    },
+    {
+      headers: { Authorization: `Bearer ${env.GEMINI_API_KEY}`, "Content-Type": "application/json" },
+      timeout: Number(env.GEMINI_TIMEOUT_MS) || 20000,
+    }
+  );
+  const content = response?.data?.choices?.[0]?.message?.content;
+  if (!content) throw new Error("Gemini response is empty");
+  return String(content).trim();
+}
+
 async function callOpenRouter(env, messages, { maxTokens, temperature = 0.7, json = false } = {}) {
+  if (env.GEMINI_API_KEY) {
+    try {
+      return await callGemini(env, messages, { maxTokens, temperature, json });
+    } catch (error) {
+      logError(
+        axios.isAxiosError(error) ? { status: error.response?.status, detail: error.response?.data } : error,
+        "gemini"
+      );
+    }
+  }
+
   if (!env.OPENROUTER_API_KEY) {
     throw new Error("OPENROUTER_API_KEY is not set");
   }
