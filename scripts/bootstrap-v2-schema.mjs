@@ -1180,7 +1180,8 @@ async function syncMobileScenarioAccessDefaults() {
   const scenarios = response.data || [];
 
   for (const [index, scenario] of scenarios.entries()) {
-    const accessType = index === 0 ? "free" : "premium";
+    // Keep an access type chosen in production; only fill it in when missing.
+    const accessType = scenario.access_type || (index === 0 ? "free" : "premium");
     const body = {};
 
     if (scenario.access_type !== accessType) {
