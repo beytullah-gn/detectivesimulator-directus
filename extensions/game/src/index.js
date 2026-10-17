@@ -572,7 +572,26 @@ async function resolvePrompt(promptService, promptName, cache) {
   };
 }
 
-async function findSessionOrFail(sessionService, sessionId, userId) {
+function hasSessionScoreFields(schema) {
+  return hasSchemaField(schema, "sessions", "score") && hasSchemaField(schema, "sessions", "stars");
+}
+
+// Stars: 3 = solved without hints, 2 = solved with 1-2 hints, 1 = solved with all hints or weak reasoning.
+function calculateSessionScore({ culpritMatch, explanationIsValid, hintCount, questionCount }) {
+  if (!culpritMatch) {
+    return { score: 50, stars: 0 };
+  }
+
+  const base = explanationIsValid ? 1000 : 400;
+  const hintPenalty = hintCount * 150;
+  const questionPenalty = Math.max(0, questionCount - 12) * 10;
+  const score = Math.max(100, base - hintPenalty - questionPenalty);
+  const stars = !explanationIsValid ? 1 : hintCount === 0 ? 3 : hintCount <= 2 ? 2 : 1;
+
+  return { score, stars };
+}
+
+async function findSessionOrFail(sessionService, sessionId, userId, extraFields = []) {
   const sessionResult = await sessionService.readByQuery({
     filter: {
       id: { _eq: sessionId },
@@ -596,6 +615,7 @@ async function findSessionOrFail(sessionService, sessionId, userId) {
       "hint_count",
       "used_hints",
       "last_activity_at",
+      ...extraFields,
     ],
     limit: 1,
   });
@@ -999,6 +1019,7 @@ export default {
             "question_count",
             "hint_count",
             "last_activity_at",
+            ...(hasSessionScoreFields(schema) ? ["score", "stars"] : []),
           ],
         });
 
@@ -1031,7 +1052,8 @@ export default {
         const session = await findSessionOrFail(
           sessionService,
           sessionId,
-          req.accountability.user
+          req.accountability.user,
+          hasSessionScoreFields(schema) ? ["score", "stars"] : []
         );
 
         if (!session) {
@@ -1118,6 +1140,8 @@ export default {
 
           result = {
             isCorrect: Boolean(session.is_correct),
+            score: Number(session.score || 0),
+            stars: Number(session.stars || 0),
             feedback: session.ai_feedback || "",
             correctGuiltyPlayers: normalizeItems(guiltyCharactersResult).map((character) => ({
               id: character.id,
@@ -1701,6 +1725,12 @@ export default {
           }
 
           const isFinalAnswerCorrect = culpritMatch && explanationIsValid;
+          const { score, stars } = calculateSessionScore({
+            culpritMatch,
+            explanationIsValid,
+            hintCount: parseArrayField(session.used_hints).length,
+            questionCount: Number(session.question_count || 0),
+          });
           const feedbackPromptName = isFinalAnswerCorrect
             ? "detective_final_feedback_success"
             : "detective_final_feedback_failure";
@@ -1736,10 +1766,14 @@ export default {
             date_end: new Date().toISOString(),
             current_stage: 4,
             last_activity_at: new Date().toISOString(),
+            ...(hasSessionScoreFields(schema) ? { score, stars } : {}),
           });
 
           return res.status(200).json({
             isCorrect: isFinalAnswerCorrect,
+            culpritMatch,
+            score,
+            stars,
             feedback,
             correctGuiltyPlayers: actualGuiltyCharacters.map((character) => ({
               id: character.id,

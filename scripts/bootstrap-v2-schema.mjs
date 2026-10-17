@@ -565,6 +565,8 @@ const additionalFieldDefinitions = {
     createIntegerField("question_count", { defaultValue: 0 }),
     createIntegerField("hint_count", { defaultValue: 0 }),
     createDateTimeField("last_activity_at"),
+    createIntegerField("score", { defaultValue: 0 }),
+    createIntegerField("stars", { defaultValue: 0 }),
   ],
   relations: [
     createM2OField("related_scenario", "scenarios", { required: false }),
@@ -1461,6 +1463,8 @@ async function main() {
         "question_count",
         "hint_count",
         "last_activity_at",
+        "score",
+        "stars",
       ],
     });
 
