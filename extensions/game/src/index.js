@@ -489,7 +489,8 @@ async function callGemini(env, messages, { maxTokens, temperature, json }) {
       model: env.GEMINI_MODEL || "gemini-flash-latest",
       messages,
       temperature,
-      max_tokens: maxTokens || 450,
+      // Gemini may still spend hidden thinking tokens; leave room so answers are not cut off.
+      max_tokens: Math.max((maxTokens || 450) * 4, 1024),
       reasoning_effort: env.GEMINI_REASONING || "none",
       ...(json ? { response_format: { type: "json_object" } } : {}),
     },
